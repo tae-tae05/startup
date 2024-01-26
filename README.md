@@ -27,7 +27,3 @@ I will use the following technologies as described.
 - WebSocket - Makes it possible to access project information from other devices. 
 - React - Application ported to use the React web framework. 
 ## AWS EC2
-### Website Server IP Address
-http://44.219.55.22
-### Remote Shell Command
-ssh -i ~/Desktop/redhat@05.pem ubuntu@44.219.55.22
