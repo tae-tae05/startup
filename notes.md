@@ -7,10 +7,10 @@ git push
 
 ### Fixing conflicts
 **git merge**
+```
 Select the change you want to keep 
-
 Add and commit new changes
-
+```
 
 ### Important Links
 Link to [README.md](https://github.com/tae-tae05/startup/blob/main/README.md)
