@@ -1,4 +1,4 @@
-### COMMITING TO GIT
+### Commiting to git
 ```
 git add .
 git commit -m "message"
