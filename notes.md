@@ -1,10 +1,9 @@
 **COMMITING TO GIT** 
+```
 git add .
-
 git commit -m "message"
-
 git push
-
+```
 
 ### Fixing conflicts
 **git merge**
