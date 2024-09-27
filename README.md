@@ -13,7 +13,7 @@ Have you ever been frustrated when you lose progress while crocheting? Or when y
 - Results are stored and can be accessed again upon login 
 ### Technologies 
 I will use the following technologies as described.
-- HTML - Uses correct HTML structure for application. Three HTML pages for login, project list page, and project details page. 
+- HTML - Uses correct HTML structure for application. Four HTML pages for login, project list page, add project page, and project details page. 
 - CSS - Application styling that looks good on different screen sizes, cute and cozy color choice and good contrast. 
 - JavaScript - Has login, project display, counter display, hooksize/yarn display, and save function.
 - Service - Backend service with endpoints for: 
@@ -26,3 +26,5 @@ I will use the following technologies as described.
 - DB/Login - Stores users, projects, counters, hook size, and yarn type in database. Register and login users. Credentials are stored in the database. Can only use once you are authenticated. 
 - WebSocket - Makes it possible to access project information from other devices. Can chat with other users to share information about projects/seek advice (ex: hook size, designs, yarn material).
 - React - Application ported to use the React web framework. 
+### HTML Deliverables
+For this deliverable, I built out the structure of my application using HTML.
