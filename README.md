@@ -29,4 +29,6 @@ I will use the following technologies as described.
 ### HTML Deliverables
 For this deliverable, I built out the structure of my application using HTML.
 - HTML Pages - Four HTML pages for login, projects page, add project page, and project details page. 
-- Links - Each page links back to Home. Login links to projects pages, 
+- Links - Each page links back to Home. Login links to projects pages. Each page has links to home, projects, and add project page. 
+- Text - 
+- DB - The projects page displays example projects that will be stored in the database. They can be accessed by clicking on the link. While it all links to the same example page in this deliverable, each one would have its own page. The example project page has hook size, yarn type, and three different counters which will be stored in the database. 
