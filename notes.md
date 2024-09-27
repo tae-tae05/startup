@@ -16,8 +16,11 @@ Add and commit new changes
 Common elements - body, header, footer, main, section, aside, p, table, ol/ul, div, span
 
 __body__ - has three children (header, main, footer)
+
 __header__ -> has a (p)aragraph with a (span), and (nav)igation containing multiple (div)isions of content
+
 __main__ -> has multiple (section)s that contain an unordered list (ul) or a (table). use (aside) for content that does not fit the table
+
 __footer__ -> has content division with a single (span)
 
 ### Important Links
