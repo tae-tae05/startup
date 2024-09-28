@@ -7,8 +7,7 @@ Have you ever been frustrated when you lose progress while crocheting? Or when y
 ![Alt text](<Webpage Idea.jpg>)
 ### Key Features
 - Login through HTTPS
-- Each project can have 3 parts/pieces
-- Each part/piece has 3 counters
+- Each project has 3 counters
 - Can store hook size and yarn style for a new project
 - Results are stored and can be accessed again upon login 
 ### Technologies 
