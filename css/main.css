@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: green !important;
+    background: green !important;
     display: flex;
     flex-direction: column;
     height: 100%;
