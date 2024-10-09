@@ -2,13 +2,11 @@ body {
     display: flex;
     flex-direction: column;
     min-width: 375px;
-    background-color: peachpuff;
 }
 
 header {
-    flex: 0 80px;
+flex: 0 80px;
 }
-
 
 main {
 flex: 1 calc(100vh - 110px);
@@ -44,15 +42,15 @@ float: right;
 }
 
 @media (max-height: 600px) {
-    header {
-      display: none;
-    }
-    footer {
-      display: none;
-    }
-    main {
-      flex: 1 100vh;
-    }
-  }
-  
+header {
+    display: none;
+}
+footer {
+    display: none;
+}
+main {
+    flex: 1 100vh;
+}
+}
+
 
