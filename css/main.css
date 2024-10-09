@@ -7,11 +7,11 @@ body {
 
 header {
     flex: 0 80px;
+    text-shadow: 2px 2px 2px black;
 }
 
 main {
     flex: 1 calc(100vh - 110px);
-    color:blue;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,11 +31,11 @@ menu {
 
 .navbar-brand {
     padding-left: 0.3em;
-    border-bottom: solid rgb(255, 169, 169) thin;
+    border-bottom: solid rgb(255, 107, 107) thin;
 }
 
 menu .nav-item {
-    color: cornflowerblue;
+    color: cornflowerblue !important;
     padding: 0 0.3em;
 }
 
