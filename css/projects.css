@@ -1,11 +1,11 @@
 h1 {
-    font-family: "Bradley Hand", cursive;
+    font-family: "Bradley Hand", "Comic Sans MS", cursive;
     color: #d6f3ff;
 }
 
 .header-title {
     color: rgb(244, 248, 255);
-    font-family: "Bradley Hand", cursive;
+    font-family: "Bradley Hand", "Comic Sans MS", cursive;
     font-size: 40px;
 }
 
@@ -38,8 +38,8 @@ main {
 
 .vertical-menu a {
     background-color: rgb(255, 243, 233);
-    color: #f7fbff;
-    text-shadow: 1.5px 1.5px 1.5px rgb(58, 76, 96);
+    color: #f1faff;
+    text-shadow: 1px 1px 1px rgb(25, 171, 255);
     display: inline-grid;
     padding: 20p;
     text-decoration: none;
@@ -53,7 +53,7 @@ main {
 
 .projectName {
     color: rgb(133, 151, 248);
-    font-family: "Bradley Hand", cursive;
+    font-family: "Bradley Hand", "Comic Sans MS", cursive;
     text-decoration: none;
 }
 

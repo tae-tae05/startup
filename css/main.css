@@ -46,32 +46,32 @@ menu {
 
 .navbar-brand {
     padding-left: 0.5em;
-    font-family: "Bradley Hand", cursive;
+    font-family: "Bradley Hand", "Comic Sans MS", cursive;
 }
 
 menu .nav-item {
     padding: 0 0.3em;
-    font-family: "Bradley Hand", cursive;
+    font-family: "Bradley Hand", "Comic Sans MS", cursive;
 }
 
 footer a {
-    font-family: "Bradley Hand", cursive;
+    font-family: "Bradley Hand", "Comic Sans MS", cursive;
     float: right;
 }
 
 .footer1 {
-    font-family: "Bradley Hand", cursive;
+    font-family: "Bradley Hand", "Comic Sans MS", cursive;
 }
 
 .button1 {
     background-color: rgb(255, 247, 226);
-    font-family: "Bradley Hand", cursive;
+    font-family: "Bradley Hand", "Comic Sans MS", cursive;
     border: 2px solid rgb(102, 129, 193);
     color: rgb(102, 129, 193);
 }
 
 .button2 {
-    font-family:  "Bradley Hand", cursive;
+    font-family: "Bradley Hand", "Comic Sans MS", cursive;
     border: 2px solid rgb(102, 129, 193);
     color: rgb(102, 129, 193);
 }
