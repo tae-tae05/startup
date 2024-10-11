@@ -11,6 +11,13 @@ header {
     font-size: 18px;
 }
 
+img {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    max-width:100%
+}
+
 main {
     background-color: rgb(255, 243, 233);
     flex: 1 calc(100vh - 110px);
