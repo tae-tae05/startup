@@ -1,0 +1,12 @@
+body {
+    background-color: rgb(255, 238, 223) !important;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+
+.projectName {
+    color: rgb(133, 151, 248);
+    font-family: "Bradley Hand", cursive;
+}
