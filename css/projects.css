@@ -9,7 +9,7 @@ body {
     flex: 0 1 auto;
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 50%;
     height: 82vh;
 }
 
@@ -23,7 +23,6 @@ body {
     display: inline-grid;
     padding: 12p;
     text-decoration: none;
-    align-items: center;
 }
 
 .vertical-menu a:hover {
