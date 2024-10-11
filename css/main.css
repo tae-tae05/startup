@@ -6,7 +6,7 @@ body {
 }
 
 header {
-    flex: 0 90px;
+    flex: 0 80px;
     text-shadow: 1px 1px 1px rgb(80, 167, 255);
     font-size: 18px;
 }
@@ -48,7 +48,12 @@ menu .nav-item {
 }
 
 footer a {
-float: right;
+    font-family: "Bradley Hand", cursive;
+    float: right;
+}
+
+.footer1 {
+    font-family: "Bradley Hand", cursive;
 }
 
 .button1 {
