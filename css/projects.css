@@ -56,3 +56,18 @@ main {
     font-family: "Bradley Hand", cursive;
     text-decoration: none;
 }
+
+.button {
+    background-color: white;
+    border: none;
+    color: rgb(96, 152, 255);
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.button1 {
+    border-radius: 10px;
+}
