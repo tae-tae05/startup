@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Example Project HTML</title>
+        <title>Example Project CSS</title>
         <link rel="icon" href="favicon.ico" />
 
         <link rel="stylesheet" href="css/main.css" />
@@ -33,52 +33,49 @@
         </header>
 
         <main>
-            <h2>🌸 Project Name 🌸</h2>
+            <h2>💠 Project Name 💠</h2>
 
-            <div>
+            <div class="project-info">
                 Hook Size: 3.5 mm
                 <br>
                 <label for="count">Update</label>
                 <input type="text" id="count" value="- mm" readonly />
-                <button type="submit">Submit</button>
+                <button class="button button1" type="submit">Submit</button>
             </div>
             <br>
-            <div>
+            <div class="project-info">
                 Yarn Type: Acrylic yellow 5ply medium weight
                 <br>
                 <label for="type">Update </label>
                 <input type="text" id="type" value="input here" readonly />
-                <button type="submit">Submit</button>
+                <button class="button button1" type="submit">Submit</button>
             </div>
             <br>
-            <div>
-                Counter 1: 0
-                <button type="button">Down</button>
-                <button type="button">Up</button>
+            <div class="project-info">
+                Counter A: 0
+                <button class="button button1" type="button">Down</button>
+                <button class="button button1" type="button">Up</button>
             </div>
             <br>
-            <div>
-                Counter 2: 1
-                <button type="button">Down</button>
-                <button type="button">Up</button>
+            <div class="project-info">
+                Counter B: 1
+                <button class="button button1" type="button">Down</button>
+                <button class="button button1" type="button">Up</button>
             </div>
             <br>
-            <div>
-                Counter 3: 10
-                <button type="button">Down</button>
-                <button type="button">Up</button>
+            <div class="project-info">
+                Counter C: 10
+                <button class="button button1" type="button">Down</button>
+                <button class="button button1" type="button">Up</button>
             </div>
             <br>
 
-            <aside>
-                <p><label for="message_history">Message History</label></p>
-                <textarea id="message_history" name="message_history" rows="6" cols="100">Jin: what yarn do you recommend for a bear plushie? amigurumi style
-    JJ: if it's your first time, use acrylic. if you have experience, try chenille
-                </textarea>
-                <p><label for="message">Message:</label></p>
-                <textarea id="message" name="message" rows="4" cols="50"></textarea>
-                <button type="Submit">Send</button>
-            </aside>
+            <h2>Message History</h2>
+            <p class="messaging"><span class="color1"></span>Jin: </span><span class="color2">What type of yarn should I use for a small amigurumi project?</span></p>
+            <p class="messaging"><span class="color1"></span>Yuki: </span><span class="color2">Use cotton if it's your first project. Otherwise, chenille is a great choice.</span></p>
+            <p><label for="message">Message:</label></p>
+            <textarea id="message" name="message" rows="4" cols="50"></textarea>
+            <button class="button button1" type="Submit">Send</button>
         </main>
 
         <footer>
