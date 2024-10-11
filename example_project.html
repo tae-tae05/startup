@@ -5,17 +5,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Example Project HTML</title>
         <link rel="icon" href="favicon.ico" />
-      </head>
-      <body>
-        <header>
-            <h1>Crochet Check</h1>
 
-            <nav>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="add_project.html">Add Project</a></li>
+        <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" href="css/example_project.css" />
+
+        <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+        crossorigin="anonymous"
+        />
+    </head>
+
+    <body>
+        <header class="container-fluid">
+            <nav class="navbar fixed-top navbar-dark">
+            <a class="navbar-brand" style="color: #ffffff">Crochet Check</a>
+            <menu class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="projects.html">Projects</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="add_project.html">Add Project</a></li>
+            </menu>
             </nav>
-            <hr />
         </header>
 
         <main>
@@ -59,7 +73,7 @@
             <aside>
                 <p><label for="message_history">Message History</label></p>
                 <textarea id="message_history" name="message_history" rows="6" cols="100">Jin: what yarn do you recommend for a bear plushie? amigurumi style
-JJ: if it's your first time, use acrylic. if you have experience, try chenille
+    JJ: if it's your first time, use acrylic. if you have experience, try chenille
                 </textarea>
                 <p><label for="message">Message:</label></p>
                 <textarea id="message" name="message" rows="4" cols="50"></textarea>
@@ -68,11 +82,9 @@ JJ: if it's your first time, use acrylic. if you have experience, try chenille
         </main>
 
         <footer>
-            <hr />
-            <span class="text-reset">Jin Han</span>
-            <br />
-            <a href="https://github.com/tae-tae05/startup.git">GitHub</a>
-          </footer>
-      </body>
+        <span class="text-reset">Jin Han</span>
+        <a href="https://github.com/tae-tae05/startup.git">GitHub</a>
+        </footer>
+    </body>
 
 </html>

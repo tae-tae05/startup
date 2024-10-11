@@ -1,0 +1,18 @@
+h1 {
+    color: rgb(106, 176, 255);
+}
+
+.parent {
+    display: flex;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.box_input {
+    flex: 1;
+    font-family: "Bradley Hand", cursive;
+    padding: 10px;
+    color: rgb(122, 164, 255);
+}
