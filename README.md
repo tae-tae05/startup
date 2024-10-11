@@ -36,4 +36,8 @@ For this deliverable, I built out the structure of my application using HTML.
 ### CSS Deliverable
 For the deliverable, I properly styled the application into its final appearance.
 - Header, footer, and main content body
-- Navigation elements - I dropped underlines, added colors/shadows to help them stand out against the background, 
+- Navigation elements - I dropped underlines and added colors/shadows to help them stand out against the background. On the projects page, I included a highlight when you cover over a link. 
+- Responsive to window sizing - My app looks great on my computer, phone, and ipad. Looks good on all different window sizes/devices. 
+- Application elements - I added a peach background and used blue as it's complimentary color for contrast. 
+- Application text content - I used consistent cursive fonts. 
+- Application images - inlcuded an image on the front page to show what the website is about. 
