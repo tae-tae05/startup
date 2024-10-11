@@ -1,16 +1,35 @@
+h1 {
+    font-family: "Bradley Hand", cursive;
+    color: #d6f3ff;
+}
+
+.header-title {
+    color: rgb(244, 248, 255);
+    font-family: "Bradley Hand", cursive;
+    font-size: 40px;
+}
+
 body {
-    background-color: rgb(255, 238, 223) !important;
     display: flex;
     flex-direction: column;
+    justify-content: center !important;
     height: 100%;
+}
+
+main {
+    flex: 1 calc(100vh - 110px);
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
 }
 
 .navbar {
     flex: 0 1 auto;
     display: flex;
     flex-direction: column;
-    width: 50%;
-    height: 82vh;
+    width: 100%;
+    height: 100%;
 }
 
 .list_item {
@@ -18,11 +37,14 @@ body {
 }
 
 .vertical-menu a {
-    background-color: rgb(255, 238, 223);
-    color: rgb(181, 224, 236);
+    background-color: rgb(255, 243, 233);
+    color: #f7fbff;
+    text-shadow: 1.5px 1.5px 1.5px rgb(58, 76, 96);
     display: inline-grid;
-    padding: 12p;
+    padding: 20p;
     text-decoration: none;
+    font-size: 25px;
+
 }
 
 .vertical-menu a:hover {
