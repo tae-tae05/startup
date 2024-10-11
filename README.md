@@ -29,6 +29,11 @@ For this deliverable, I built out the structure of my application using HTML.
 - HTML Pages - Four HTML pages for login, projects page, add project page, and project details page. 
 - Links - Each page links back to Home. Login links to projects pages. Each page has links to home, projects, and add project page. 
 - Text - All of the project details are represented by text in the example project page. 
-- Image - I couldn't figure out where to include an image so I made it without one. 
+- Image - An image of yarn and a hook is included on the home page.
+- Third-party - A share button is available; it allows you to send an email to yourself with project details. 
 - DB - The projects page displays example projects that will be stored in the database. They can be accessed by clicking on the link. While it all links to the same example page in this deliverable, each one would have its own page. The example project page has hook size, yarn type, and three different counters which will also be stored in the database. The first line of both the hook size and yarn type is text, which is the placeholder for the current information, and the box underneath would update the database. The counters have text for the number (placeholder), and the up down button would update the database by either incrementing or decreasing by 1. 
 - Websocket - The example project page shows two boxes at the bottom. One has text to show where the live messages will be broadcasted, and the lower empty box is where the user can input text to send their own message. 
+### CSS Deliverable
+For the deliverable, I properly styled the application into its final appearance.
+- Header, footer, and main content body
+- Navigation elements - I dropped underlines, added colors/shadows to help them stand out against the background, 
