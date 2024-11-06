@@ -2,7 +2,7 @@ import React from 'react';
 
 export function Add_Project() {
   return (
-    <main className='container-fluid bg-secondary text-center'>
+    <main className='container-fluid text-center'>
       <div>Add Project displayed here</div>
     </main>
   );

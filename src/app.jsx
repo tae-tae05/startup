@@ -4,12 +4,11 @@ import './app.css';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login';
 import { Add_Project } from './add_project/add_project';
-import { Project } from './project/project';
-
+import { Projects } from './projects/projects';
 
 export default function App() {
     return (
-    <BrowserRouter>
+        <BrowserRouter>
       <div className='body bg-dark'>
         <header className='container-fluid'>
           <nav className='navbar fixed-top navbar-dark'>
@@ -18,27 +17,30 @@ export default function App() {
             </div>
             <menu className='navbar-nav'>
               <li className='nav-item'>
-                <NavLink className='nav-link' href='index.html'>
+                <NavLink className='nav-link' to=''>
                   Home
                 </NavLink>
               </li>
               <li className='nav-item'>
-                <NavLink className='nav-link' href='projects.html'>
+                <NavLink className='nav-link' to='projects'>
                   Projects
                 </NavLink>
               </li>
               <li className='nav-item'>
-                <NavLink className='nav-link' href='add_project.html'>
+                <NavLink className='nav-link' to='add_project'>
                   Add Project
                 </NavLink>
               </li>
             </menu>
           </nav>
         </header>
-  
-        <main>
-            App components go here
-        </main>
+
+        <Routes>
+            <Route path='/' element={<Login />} exact />
+            <Route path='/projects' element={<Projects />} />
+            <Route path='/add_project' element={<Add_Project />} />
+            <Route path='*' element={<NotFound />} />
+        </Routes>
   
         <footer className='text-white-50'>
           <div className='container-fluid'>
@@ -51,4 +53,8 @@ export default function App() {
       </div>
       </BrowserRouter>
     );
+  }
+
+  function NotFound() {
+    return <main className='container-fluid text-center'>404: Return to sender. Address unknown.</main>;
   }
