@@ -5,6 +5,7 @@ import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login';
 import { Add_Project } from './add_project/add_project';
 import { Projects } from './projects/projects';
+import { Example_Project } from './example_project/example_project';
 
 export default function App() {
     return (
@@ -39,6 +40,7 @@ export default function App() {
             <Route path='/' element={<Login />} exact />
             <Route path='/projects' element={<Projects />} />
             <Route path='/add_project' element={<Add_Project />} />
+            <Route path='/example_project' element={<Example_Project />} />
             <Route path='*' element={<NotFound />} />
         </Routes>
   

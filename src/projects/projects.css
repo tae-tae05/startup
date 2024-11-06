@@ -9,29 +9,6 @@ h1 {
     font-size: 40px;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center !important;
-    height: 100%;
-}
-
-main {
-    flex: 1 calc(100vh - 110px);
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: left;
-}
-
-.navbar {
-    flex: 0 1 auto;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-}
-
 .list_item {
     flex: 0 1 auto;
 }
@@ -40,7 +17,7 @@ main {
     background-color: rgb(255, 243, 233);
     color: #f1faff;
     text-shadow: 1px 1px 1px rgb(25, 171, 255);
-    display: inline-grid;
+    display: block;
     padding: 20p;
     text-decoration: none;
     font-size: 25px;
