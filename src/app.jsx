@@ -1,9 +1,15 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { Login } from './login/login';
+import { Add_Project } from './add_project/add_project';
+import { Project } from './project/project';
+
 
 export default function App() {
     return (
+    <BrowserRouter>
       <div className='body bg-dark'>
         <header className='container-fluid'>
           <nav className='navbar fixed-top navbar-dark'>
@@ -12,19 +18,19 @@ export default function App() {
             </div>
             <menu className='navbar-nav'>
               <li className='nav-item'>
-                <a className='nav-link' href='index.html'>
+                <NavLink className='nav-link' href='index.html'>
                   Home
-                </a>
+                </NavLink>
               </li>
               <li className='nav-item'>
-                <a className='nav-link' href='projects.html'>
+                <NavLink className='nav-link' href='projects.html'>
                   Projects
-                </a>
+                </NavLink>
               </li>
               <li className='nav-item'>
-                <a className='nav-link' href='add_project.html'>
+                <NavLink className='nav-link' href='add_project.html'>
                   Add Project
-                </a>
+                </NavLink>
               </li>
             </menu>
           </nav>
@@ -37,11 +43,12 @@ export default function App() {
         <footer className='text-white-50'>
           <div className='container-fluid'>
             <span className='text-reset'>Jin Han</span>
-            <a className='text-reset' href="https://github.com/tae-tae05/startup.git">
+            <NavLink className='text-reset' href="https://github.com/tae-tae05/startup.git">
               Github
-            </a>
+            </NavLink>
           </div>
         </footer>
       </div>
+      </BrowserRouter>
     );
   }
