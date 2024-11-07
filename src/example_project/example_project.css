@@ -23,13 +23,14 @@ h2 {
 }
 
 .button {
-    background-color: rgb(255, 211, 108);
+    background-color: rgb(255, 226, 158);
     border: none;
     color: rgb(42, 130, 173);
     padding: 8px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    justify-content: space-between;
 }
 
 .button1 {
