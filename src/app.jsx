@@ -6,8 +6,13 @@ import { Login } from './login/login';
 import { Add_Project } from './add_project/add_project';
 import { Projects } from './projects/projects';
 import { Example_Project } from './example_project/example_project';
+import { AuthState } from './login/authState';
 
-export default function App() {
+function App() {
+  const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
+  const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
+  const [authState, setAuthState] = React.useState(currentAuthState);
+
     return (
         <BrowserRouter>
       <div className='body bg-dark'>
@@ -22,22 +27,33 @@ export default function App() {
                   Home
                 </NavLink>
               </li>
+              {authState === AuthState.Authenticated && (
               <li className='nav-item'>
                 <NavLink className='nav-link' to='projects'>
                   Projects
                 </NavLink>
               </li>
+              )}
+              {authState === AuthState.Authenticated && (
               <li className='nav-item'>
                 <NavLink className='nav-link' to='add_project'>
                   Add Project
                 </NavLink>
               </li>
+              )}
             </menu>
           </nav>
         </header>
 
         <Routes>
-            <Route path='/' element={<Login />} exact />
+            <Route path='/' element={<Login
+                userName={userName}
+                authState={authState}
+                onAuthChange={(userName, authState) => {
+                  setAuthState(authState);
+                  setUserName(userName);
+                }}
+              />} exact />
             <Route path='/projects' element={<Projects />} />
             <Route path='/add_project' element={<Add_Project />} />
             <Route path='/example_project' element={<Example_Project />} />
@@ -60,3 +76,5 @@ export default function App() {
   function NotFound() {
     return <main className='container-fluid text-center'>404: Return to sender. Address unknown.</main>;
   }
+
+export default App;
