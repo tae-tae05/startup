@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export function Login() {
   return (
@@ -13,10 +14,20 @@ export function Login() {
             <div className="input-group mb-3">
                 <input className="form-control" type="text" placeholder="password" />   
             </div>
-        <button type="submit" className="button1">Login</button>
-        <button type="submit" className="button2">Register</button>
+        <Link_Page />
+        {/* <button type="submit" className="button1">Login</button>
+        <button type="submit" className="button2">Register</button> */}
         </form>
         </div>
     </main>
+  );
+}
+
+function Link_Page() {
+  return (
+    <Link to="/projects">
+      <button className="button1">Login</button>
+      <button className="button2">Register</button>
+    </Link>
   );
 }

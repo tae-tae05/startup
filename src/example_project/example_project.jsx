@@ -7,7 +7,7 @@ export function Example_Project() {
     <main className='container-fluid text-center'>
       <h2>💠 Project Name 💠</h2>
 
-      {/* <div className="project-info">
+      <div className="project-info">
         <span className="color1">Hook Size: </span>3.5mm
         <Update />
       </div>
@@ -15,7 +15,7 @@ export function Example_Project() {
       <div className="project-info">
         <span className="color1">Yarn Type: </span>Acrylic yellow 5ply medium weight
         <Update />
-      </div> */}
+      </div>
 
       <div className="project-info">
           <Counter_Button />
@@ -70,15 +70,14 @@ function Chat() {
     )
 }
 
-// function Update() {
-//     return ( 
-//         <>
-//         Update: 
-//         <input className="color2" type="text" id="type" value="input here" readonly />
-//         <button className="button button1">Submit</button>
-//         </>
-//     )
-// }
+function Update() {
+    return ( 
+        <>
+        <input className="color2" type="text" id="type" value="input here" readonly />
+        <button className="button button1">Submit</button>
+        </>
+    )
+}
 
 function Counter_Button() {
     const [count, setCount] = useState(0);
