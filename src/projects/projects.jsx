@@ -11,11 +11,11 @@ export function Projects() {
                         <Link className="projectName list_item" to="..">💠 Home 💠</Link>
                         <Link className="projectName list_item" to="../add_project">💠 Add Project 💠</Link>
                         <Link className="projectName list_item" to="../example_project">💠 Example Project 1 💠</Link>
-                        <Share_Popup />
-                        <Link className="projectName list_item" to="../example_project">💠 Example Project 2 💠</Link>
+                        <App />
+                        {/* <Link className="projectName list_item" to="../example_project">💠 Example Project 2 💠</Link>
                         <Share_Popup />
                         <Link className="projectName list_item" to="../example_project">💠 Example Project 3 💠</Link>
-                        <Share_Popup />
+                        <Share_Popup /> */}
                     </div>
                 </menu>
             </nav>
@@ -23,18 +23,29 @@ export function Projects() {
   );
 }
 
-function Share_Popup() {
-    const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-    const handleOpenPopup = () => {
-        setIsPopupOpen(true); // Set popup to open on button click
-    };
-     
-    const handleClosePopup = () => {
-        setIsPopupOpen(false); // Set popup to close
-    };
-
+function MyDialog({ isOpen, onClose, children }) {
+    if (!isOpen) return null;
+  
     return (
-        <button className="button button1" type="submit">Share</button>
+      <div className="dialog-overlay">
+        <div className="dialog-content">
+          <button onClick={onClose}>Close</button>
+          {children}
+        </div>
+      </div>
     );
-}
+  }
+  
+  function App() {
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
+  
+    return (
+      <div>
+        <button onClick={() => setIsDialogOpen(true)}>Open Dialog</button>
+        <MyDialog isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
+          <h2>Dialog Title</h2>
+          <p>This is the content of the dialog.</p>
+        </MyDialog>
+      </div>
+    );
+  }
