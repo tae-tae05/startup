@@ -27,24 +27,16 @@ export function Unauthenticated(props) {
         <h1>Login</h1>
         <form method="get" action="projects.html">
             <div className="input-group mb-3">
-                <input className="form-control" type="text" placeholder="email" />   
+                <input className="form-control" type="text" value={userName} onChange={(e) => setUserName(e.target.value)} placeholder="email" />   
             </div>
             <div className="input-group mb-3">
-                <input className="form-control" type="text" placeholder="password" />   
+                <input className="form-control" type="text" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" />   
             </div>
-        {/* <Link_Page /> */}
+        <button className="button1" onClick={() => loginUser()} disabled={!userName || !password}>Login</button>
+        <button className="button2" onClick={() => loginUser()} disabled={!userName || !password}>Register</button>
         </form>
         </div>
         </main>
         </>
     );
 }
-
-// function Link_Page() {
-//     return (
-//       <Link to="/projects">
-//         <button className="button1">Login</button>
-//         <button className="button2">Register</button>
-//       </Link>
-//     );
-// } 
