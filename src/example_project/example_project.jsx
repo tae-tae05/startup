@@ -62,7 +62,7 @@ function Chat() {
             type="text"
             value={message}
             onChange={handleInput}
-            placeholder="Type your message..."></input>
+            ></input>
             <button className="button button1" onClick={sendMessage}>Send</button>
         </div>
     )

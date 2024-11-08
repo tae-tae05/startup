@@ -1,35 +1,66 @@
 import React from 'react';
 import "./add_project.css";
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 
 export function Add_Project() {
   return (
     <main className="parent">
             <form method="get" action="projects.html">
-                <div className="box_input">
-                    <label for="name">Project Name</label>
-                    <input type="text" id="name" value="enter name here" readonly />
-                </div>
-                <div className="box_input">
-                    <label for="count">Hook Size</label>
-                    <input type="text" id="count" value="- mm" readonly />
-                </div>
-                <div className="box_input">
-                    <label for="yarn">Yarn Type</label>
-                    <input type="text" id="yarn" value="enter yarn here" readonly />
-                </div>
-                <Link_Page />
+              <Submit />
             </form>
         </main>
 
   );
 }
 
-function Link_Page() {
+function Submit() {
+  const [text1, setInputValue1] = useState('');
+  const [text2, setInputValue2] = useState('');
+  const [text3, setInputValue3] = useState('');
+  const [text_holder, setCurrentValue] = useState('');
+
+  const handleInput = (event, index) => {
+    switch (index) {
+      case 1:
+        setInputValue1(event.target.value);
+        break;
+      case 2:
+        setInputValue2(event.target.value);
+        break;
+      case 3:
+        setInputValue3(event.target.value);
+        break;
+      default:
+        break;
+    }
+  };
+
+const handleClick = () => {
+    if (text.trim() !== '') { //prevent sending empty messages
+        // setCurrentValue(text);
+        setInputValue(''); //clear input field after sending
+    }
+  };
+
   return (
-    <Link to="/example_project">
+    <>
+      <div className="box_input">
+        <label for="name">Project Name</label>
+        <input type="text" id="name" value={text1} onChange={(event) => handleInput(event, 1)} />
+      </div>
+      <div className="box_input">
+        <label for="name">Hook Size</label>
+        <input type="text" id="hook" value={text2} onChange={(event) => handleInput(event, 2)} />
+      </div>
+      <div className="box_input">
+        <label for="name">Hook Size</label>
+        <input type="text" id="hook" value={text3} onChange={(event) => handleInput(event, 3)} />
+      </div>
+      <Link to="/example_project">
       <button className="button1">Submit</button>
     </Link>
+    </>
   );
 }
