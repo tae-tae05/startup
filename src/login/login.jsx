@@ -15,8 +15,6 @@ export function Login() {
                 <input className="form-control" type="text" placeholder="password" />   
             </div>
         <Link_Page />
-        {/* <button type="submit" className="button1">Login</button>
-        <button type="submit" className="button2">Register</button> */}
         </form>
         </div>
     </main>

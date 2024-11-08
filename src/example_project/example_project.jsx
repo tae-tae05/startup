@@ -8,12 +8,10 @@ export function Example_Project() {
       <h2>💠 Project Name 💠</h2>
 
       <div className="project-info">
-        <span className="color1">Hook Size: </span>3.5mm
-        <Update />
+        <Hook_Button />
       </div>
 
       <div className="project-info">
-        <span className="color1">Yarn Type: </span>Acrylic yellow 5ply medium weight
         <Update />
       </div>
 
@@ -64,19 +62,58 @@ function Chat() {
             type="text"
             value={message}
             onChange={handleInput}
-            palceholder="Type your message..."></input>
+            placeholder="Type your message..."></input>
             <button className="button button1" onClick={sendMessage}>Send</button>
         </div>
     )
 }
 
 function Update() {
-    return ( 
+    const [text, setInputValue] = useState('');
+    const [text_holder, setCurrentValue] = useState('');
+
+    const handleInput = (event) => {
+        setInputValue(event.target.value);
+    };
+
+    const handleClick = () => {
+        if (text.trim() !== '') { //prevent sending empty messages
+            setCurrentValue(text);
+            setInputValue(''); //clear input field after sending
+        }
+      };
+
+    return (
         <>
-        <input className="color2" type="text" id="type" value="input here" readonly />
-        <button className="button button1">Submit</button>
+        <span className="color1">Yarn Type: </span><span>{text_holder} </span>
+        <input type='text' value={text} onChange={handleInput}/>
+        <button className="button button1" onClick={handleClick}>Submit</button>
         </>
-    )
+    );
+}
+
+function Hook_Button() {
+    const [text, setInputValue] = useState('');
+    const [text_holder, setCurrentValue] = useState('');
+
+    const handleInput = (event) => {
+        setInputValue(event.target.value);
+    };
+
+    const handleClick = () => {
+        if (text.trim() !== '') { //prevent sending empty messages
+            setCurrentValue(text);
+            setInputValue(''); //clear input field after sending
+        }
+      };
+
+    return (
+        <>
+        <span className="color1">Hook: </span><span>{text_holder} </span>
+        <input type='text' value={text} onChange={handleInput}/>
+        <button className="button button1" onClick={handleClick}>Submit</button>
+        </>
+    );
 }
 
 function Counter_Button() {
@@ -94,7 +131,7 @@ function Counter_Button() {
 
     return (
         <>
-            Count: {count}
+            <span className="color1">Count: </span>{count}
             <button className="button button1" onClick={increment}>Up</button>
             <button className="button button1" onClick={decrease}>Down</button>
         </>

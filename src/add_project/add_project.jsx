@@ -1,5 +1,7 @@
 import React from 'react';
 import "./add_project.css";
+import { Link } from 'react-router-dom';
+
 
 export function Add_Project() {
   return (
@@ -17,9 +19,17 @@ export function Add_Project() {
                     <label for="yarn">Yarn Type</label>
                     <input type="text" id="yarn" value="enter yarn here" readonly />
                 </div>
-                <button className="button1 ml-auto" type="submit">Submit</button>
+                <Link_Page />
             </form>
         </main>
 
+  );
+}
+
+function Link_Page() {
+  return (
+    <Link to="/example_project">
+      <button className="button1">Submit</button>
+    </Link>
   );
 }
