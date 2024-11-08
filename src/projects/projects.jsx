@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './projects.css'
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export function Projects() {
   return (
@@ -11,14 +11,30 @@ export function Projects() {
                         <Link className="projectName list_item" to="..">💠 Home 💠</Link>
                         <Link className="projectName list_item" to="../add_project">💠 Add Project 💠</Link>
                         <Link className="projectName list_item" to="../example_project">💠 Example Project 1 💠</Link>
-                        <button className="button button1" type="submit">Share</button>
+                        <Share_Popup />
                         <Link className="projectName list_item" to="../example_project">💠 Example Project 2 💠</Link>
-                        <button className="button button1" type="submit">Share</button>
+                        <Share_Popup />
                         <Link className="projectName list_item" to="../example_project">💠 Example Project 3 💠</Link>
-                        <button className="button button1" type="submit">Share</button>
+                        <Share_Popup />
                     </div>
                 </menu>
             </nav>
         </main>
   );
+}
+
+function Share_Popup() {
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+    const handleOpenPopup = () => {
+        setIsPopupOpen(true); // Set popup to open on button click
+    };
+     
+    const handleClosePopup = () => {
+        setIsPopupOpen(false); // Set popup to close
+    };
+
+    return (
+        <button className="button button1" type="submit">Share</button>
+    );
 }

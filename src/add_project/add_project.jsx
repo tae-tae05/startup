@@ -19,7 +19,7 @@ function Submit() {
   const [text1, setInputValue1] = useState('');
   const [text2, setInputValue2] = useState('');
   const [text3, setInputValue3] = useState('');
-  const [text_holder, setCurrentValue] = useState('');
+  // const [text_holder, setCurrentValue] = useState(''); //handle next phase
 
   const handleInput = (event, index) => {
     switch (index) {
@@ -37,12 +37,12 @@ function Submit() {
     }
   };
 
-const handleClick = () => {
-    if (text.trim() !== '') { //prevent sending empty messages
-        // setCurrentValue(text);
-        setInputValue(''); //clear input field after sending
-    }
-  };
+  const handleClick = () => {
+      if (text.trim() !== '') { //prevent sending empty messages
+          // setCurrentValue(text); //handle during next phase
+          setInputValue(''); //clear input field after sending
+      }
+    };
 
   return (
     <>
