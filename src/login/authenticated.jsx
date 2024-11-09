@@ -12,11 +12,15 @@ export function Authenticated(props) {
 
   return (
     <>
-    <div>
-      <div className='playerName'>{props.userName}</div>
-        {/* make a button that will logout the user here */}
-        <p>made it to authenticated</p>
-    </div>
+        <main className='container-fluid text-center'>
+            <h1>Welcome {props.userName}!</h1>
+            <img src="crochet-picture.jpeg" alt="crochet" width="300" height="300" />
+            <div>
+                <button className="button1" onClick={() => logout()}>Logout</button>
+
+                {/* make a button that will logout the user here */}
+            </div>
+        </main>
     </>
   )
 }

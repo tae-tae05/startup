@@ -54,9 +54,11 @@ function App() {
                   setUserName(userName);
                 }}
               />} exact />
-            <Route path='/projects' element={<Projects />} />
+            <Route path='/projects' element={<Projects 
+            userName={userName}/>} />
             <Route path='/add_project' element={<Add_Project />} />
-            <Route path='/example_project' element={<Example_Project />} />
+            <Route path='/example_project' element={<Example_Project 
+            userName={userName}/>} />
             <Route path='*' element={<NotFound />} />
         </Routes>
   
