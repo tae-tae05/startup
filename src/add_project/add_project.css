@@ -11,7 +11,7 @@ h1 {
 }
 
 .box_input {
-    flex: 1;
+    display: flex;
     font-family: "Bradley Hand", "Comic Sans MS", cursive;
     padding: 10px;
     color: rgb(122, 164, 255);
