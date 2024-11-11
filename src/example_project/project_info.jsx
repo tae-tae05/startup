@@ -19,14 +19,6 @@ export function Project_Info() {
           <Counter_Button />
       </div>
 
-      {/* <div className="project-info">
-          <Counter_Button />
-      </div>
-      
-      <div className="project-info">
-          <Counter_Button />
-      </div> */}
-
         </>
     );
 }

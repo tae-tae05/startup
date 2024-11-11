@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './projects.css'
 import { Link } from 'react-router-dom';
 
@@ -12,6 +12,16 @@ export function Projects() {
     }
   }, []);
 
+  function clearLocalStorage() {
+    localStorage.clear();
+  }
+
+  const handleClearStorage = () => {
+    clearLocalStorage();
+    // Optionally, you can add some feedback to the user
+    alert('Local storage cleared!');
+  }
+
   return (
     <main className="container-fluid text-center">
             <nav>
@@ -21,6 +31,7 @@ export function Projects() {
                         <Link className="projectName list_item" to="../add_project">💠 Add Project 💠</Link>
                         <Link className="projectName list_item" to="../example_project">💠 Example Project 1 💠</Link>
                         {/* make a way to display all projects from the local storage */}
+                        <button className="button button1" onClick={handleClearStorage}>Clear All Projects</button>
                     </div>
                 </menu>
             </nav>

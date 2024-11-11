@@ -37,6 +37,15 @@ function Submit() {
     localStorage.setItem('projects', JSON.stringify(projects));
   }
 
+  const handleClick = () => {
+      if (projectName.trim() !== '' && hookSize.trim() !== '' && yarnType.trim !== '') { //prevent sending empty messages
+          saveProject(projectName, hookSize, yarnType);
+          setInputValue1(''); //clear input field after sending
+          setInputValue2(''); //clear input field after sending
+          setInputValue3(''); //clear input field after sending
+      }
+    };
+
   const handleInput = (event, index) => {
     switch (index) {
       case 1:
@@ -51,39 +60,8 @@ function Submit() {
       default:
         break;
     }
-    saveProject(projectName, hookSize, yarnType);
+    // saveProject(projectName, hookSize, yarnType);
   };
-
-  const [projects, setProjects] = React.useState([]);
-
-  React.useEffect(() => {
-    const project_text = localStorage.getItem('projects');
-    if (project_text) {
-      setProjects(JSON.parse(project_text));
-    }
-  }, []);
-
-  const project_rows = [];
-  if (projects.length) {
-    for (const [i, project] of projects.entries()) {
-      project_rows.push(
-        <tr key={i}>
-          <td>{i}</td>
-          <td>{project.name}</td>
-          <td>{project.hook}</td>
-          <td>{project.yarn}</td>
-        </tr>
-      );
-    }
-  }
-
-
-  // const handleClick = () => {
-  //     if (text.trim() !== '') { //prevent sending empty messages
-  //         // setCurrentValue(text); //handle during next phase
-  //         setInputValue(''); //clear input field after sending
-  //     }
-  //   };
 
   return (
     <>
@@ -99,10 +77,9 @@ function Submit() {
         <label for="name">Yarn Type</label>
         <input type="text" id="yarn" value={yarnType} onChange={(event) => handleInput(event, 3)} />
       </div>
-      <Link to="/example_project">
-      <button className="button1">Submit</button>
-    </Link>
-    <ul id='project'>{project_rows}</ul>
+      {/* <Link to="/example_project"> */}
+      <button className="button1" onClick={handleClick}>Submit</button>
+    {/* </Link> */}
     </>
   );
 }
