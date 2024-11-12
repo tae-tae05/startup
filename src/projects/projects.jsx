@@ -1,6 +1,7 @@
 import React from 'react';
 import './projects.css'
 import { Link } from 'react-router-dom';
+import { Display_Projects } from './display_projects';
 
 export function Projects() {
   const [projects, setProjects] = React.useState([]);
@@ -27,10 +28,10 @@ export function Projects() {
             <nav>
                 <menu>
                     <div className="vertical-menu">
-                        <Link className="projectName list_item" to="..">💠 Home 💠</Link>
-                        <Link className="projectName list_item" to="../add_project">💠 Add Project 💠</Link>
-                        <Link className="projectName list_item" to="../example_project">💠 Example Project 1 💠</Link>
+                        <Link className="projectName list_item" to="..">Home</Link>
+                        <Link className="projectName list_item" to="../add_project">Add Project</Link>
                         {/* make a way to display all projects from the local storage */}
+                        <Display_Projects />
                         <button className="button button1" onClick={handleClearStorage}>Clear All Projects</button>
                     </div>
                 </menu>
