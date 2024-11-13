@@ -39,32 +39,3 @@ export function Projects() {
         </main>
   );
 }
-
-
-
-// function MyDialog({ isOpen, onClose, children }) {
-//     if (!isOpen) return null;
-  
-//     return (
-//       <div className="dialog-overlay">
-//         <div className="dialog-content">
-//           <button onClick={onClose}>Close</button>
-//           {children}
-//         </div>
-//       </div>
-//     );
-//   }
-  
-//   function App() {
-//     const [isDialogOpen, setIsDialogOpen] = useState(false);
-  
-//     return (
-//       <div>
-//         <button onClick={() => setIsDialogOpen(true)}>Open Dialog</button>
-//         <MyDialog isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
-//           <h2>Dialog Title</h2>
-//           <p>This is the content of the dialog.</p>
-//         </MyDialog>
-//       </div>
-//     );
-//   }
