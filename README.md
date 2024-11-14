@@ -41,3 +41,14 @@ For the deliverable, I properly styled the application into its final appearance
 - Application elements - I added a peach background and used blue as it's complimentary color for contrast. 
 - Application text content - I used consistent cursive fonts. 
 - Application images - inlcuded an image on the front page to show what the website is about. 
+### React Deliverable
+For the deliverable, I used React and JS to make the application work for a single user. I also added placeholders for future technology. 
+- Bundled and transpiled - done!
+- Components - Login and texting on the project page are both components with mocks for login and Websocket 
+    - Login - When you login, you gain access to the projects/add project pages 
+    - Database - Projects are currently stored locally, but will be replaced with a database later. 
+    - Projects - Once you add a project, it is displayed in the Projects page. Clicking on it leads to the example page. Local storage was used to demonstrate what it will look like when the database is properly implemented.
+    - Example Project (any project that has been added) - All buttons are function, but it does not pull data from localstorage. These are just placeholders for when the database is added, so all inputs are either empty/zero. When you add text and press submit, it will display the information on the page (database update to be implemented later), and the counter clicks up and down as many times as you want. 
+    - Messaging Chat (Websocket) - In the page where Project information will be displayed, I have a placeholder button that sends a message (renders on the screen) - it will be replaced by Websocket later.  
+- Router - Routing between login and projects/add project page, and routing between projects and home/add project/example projects.
+- Hooks - Used useEffect hooks creating new projects and displaying project information (ex: a counter that updates everytime you click the button)
