@@ -13,16 +13,17 @@ h1 {
     flex: 0 1 auto;
 }
 
+
 .vertical-menu a {
     background-color: rgb(255, 243, 233);
     color: #f1faff;
     text-shadow: 1px 1px 1px rgb(25, 171, 255);
-    display: block;
     padding: 20p;
     text-decoration: none;
     font-size: 25px;
-    text-align: center;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .vertical-menu a:hover {
@@ -33,6 +34,7 @@ h1 {
     color: rgb(133, 151, 248);
     font-family: "Bradley Hand", "Comic Sans MS", cursive;
     text-decoration: none;
+    align-self:center;
 }
 
 .button {

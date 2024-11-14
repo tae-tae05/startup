@@ -23,6 +23,18 @@ export function Projects() {
     alert('Local storage cleared!');
   }
 
+  const project_names = [];
+
+    for (const [i, project] of projects.entries()) {
+        project_names.push(
+            <tr key={i}>
+                <td>
+                    {project.name}
+                </td>
+            </tr>
+        );
+    }
+
   return (
     <main className="container-fluid text-center">
             <nav>
@@ -30,8 +42,10 @@ export function Projects() {
                     <div className="vertical-menu">
                         <Link className="projectName list_item" to="..">Home</Link>
                         <Link className="projectName list_item" to="../add_project">Add Project</Link>
-                        {/* make a way to display all projects from the local storage */}
-                        <Display_Projects />
+
+                        {project_names.map((name, index) => (
+                          <Link className="projectName list_item" to="../example_project" key={index}>{name}</Link>
+                        ))}
                         <button className="button button1" onClick={handleClearStorage}>Clear All Projects</button>
                     </div>
                 </menu>

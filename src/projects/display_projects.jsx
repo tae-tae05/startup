@@ -25,7 +25,7 @@ export function Display_Projects() {
     }
 
     return (
-        <div>
+        <div className="vertical-menu">
             {project_names.map((name, index) => (
                     <Link className="projectName list_item" to="../example_project" key={index} style={{ textAlign: 'center' }}>{name}</Link>
                 ))}
