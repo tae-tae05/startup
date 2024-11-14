@@ -1,7 +1,6 @@
 import React from 'react';
 import './projects.css'
 import { Link } from 'react-router-dom';
-import { Display_Projects } from './display_projects';
 
 export function Projects() {
   const [projects, setProjects] = React.useState([]);
@@ -36,7 +35,7 @@ export function Projects() {
     }
 
   return (
-    <main className="container-fluid text-center">
+    <main className="container-fluid text ">
             <nav>
                 <menu>
                     <div className="vertical-menu">
