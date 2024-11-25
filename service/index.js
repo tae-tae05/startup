@@ -2,8 +2,9 @@ const express = require('express');
 const app = express();
 const uuid = require('uuid');
 
-const port = process.argv.length > 2 ? process.argv[2] : 4000;
+const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
+//serves anything in public directory
 app.use(express.static('public'));
 
 //parse json
