@@ -8,13 +8,13 @@ export function Unauthenticated(props) {
     // const [displayError, setDisplayError] = React.useState(null);
 
     async function loginUser() {
-        loginOrCreate(`/api/auth/login`);
+        login_create(`/api/auth/login`);
         // localStorage.setItem('userName', userName);
         // props.onLogin(userName);
     }
 
     async function createUser() {
-        loginOrCreate(`/api/auth/create`);
+        login_create(`/api/auth/create`);
         // localStorage.setItem('userName', userName);
         // props.onLogin(userName);
     }

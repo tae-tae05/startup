@@ -27,13 +27,23 @@ app.listen(port, () => {
 });
 
 //CreateAuth a new user
-
+apiRouter.post('/auth/create', async (req, res) => {
+    const user = users[req.body.email];
+    if (user) {
+      res.status(409).send({ msg: 'Existing user' });
+    } else {
+      const user = { email: req.body.email, password: req.body.password, token: uuid.v4() };
+      users[user.email] = user;
+  
+      res.send({ token: user.token });
+    }
+  });
 
 //tester
-var test_data = {test:"testdata"};
+// var test_data = {test:"testdata"};
 
-apiRouter.get('/test', (_req, res) => {
-    console.log("In Test");
-    res.send(test_data);
-});
+// apiRouter.get('/test', (_req, res) => {
+//     console.log("In Test");
+//     res.send(test_data);
+// });
 
