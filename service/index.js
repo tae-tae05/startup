@@ -13,10 +13,11 @@ app.use(express.json());
 let users = {};
 let projects = {};
 
-// //router for service endpoints
-// var apiRouter = express.Router();
-// app.use(`/api`, apiRouter);
+//router for service endpoints
+var apiRouter = express.Router();
+app.use(`/api`, apiRouter);
 
+//default
 app.get('*', (_req, res) => {
   res.send({ msg: 'Jin service' });
 });
@@ -24,3 +25,15 @@ app.get('*', (_req, res) => {
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+//CreateAuth a new user
+
+
+//tester
+var test_data = {test:"testdata"};
+
+apiRouter.get('/test', (_req, res) => {
+    console.log("In Test");
+    res.send(test_data);
+});
+
