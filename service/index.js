@@ -17,20 +17,26 @@ let projects = {};
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
-//CreateAuth a new user
-apiRouter.post('/auth/create', async (req, res) => {
-    console.log("In Create");
-    res.send({msg: "create page" });
-    // const user = users[req.body.email];
-    // if (user) {
-    //   res.status(409).send({ msg: 'Existing user' });
-    // } else {
-    //   const user = { email: req.body.email, password: req.body.password, token: uuid.v4() };
-    //   users[user.email] = user;
+//tester 2
+apiRouter.post('/poke', async(_req, res) => {
+    console.log("in poke");
+    res.send({msg: "poke page" });
+});
+
+// //CreateAuth a new user
+// apiRouter.post('/auth/create', async (req, res) => {
+//     console.log("In Create");
+//     res.send({msg: "create page" });
+//     // const user = users[req.body.email];
+//     // if (user) {
+//     //   res.status(409).send({ msg: 'Existing user' });
+//     // } else {
+//     //   const user = { email: req.body.email, password: req.body.password, token: uuid.v4() };
+//     //   users[user.email] = user;
   
-    //   res.send({ token: user.token });
-    // }
-  });
+//     //   res.send({ token: user.token });
+//     // }
+//   });
 
 // // GetAuth login an existing user
 // apiRouter.post('/auth/login', async (req, res) => {
@@ -55,6 +61,12 @@ apiRouter.post('/auth/create', async (req, res) => {
 // });
 
 //default
+
+apiRouter.get('/project', (_req, res) => {
+    console.log("in project");
+    res.send(projects);
+});
+
 app.get('*', (_req, res) => {
     res.send({ msg: 'Jin service' });
 });

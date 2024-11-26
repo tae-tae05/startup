@@ -6,15 +6,15 @@ export function Projects() {
   const [projects, setProjects] = React.useState([]);
 
   React.useEffect(() => {
-    // fetch('/api/projects')
-    //   .then((response) => response.json())
-    //   .then((projects) => {
-    //     setProjects(projects);
-    //   });
-    const project_text = localStorage.getItem('projects');
-    if (project_text) {
-      setProjects(JSON.parse(project_text));
-    }
+    fetch('/api/projects')
+      .then((response) => response.json())
+      .then((projects) => {
+        setProjects(projects);
+      });
+    // const project_text = localStorage.getItem('projects');
+    // if (project_text) {
+    //   setProjects(JSON.parse(project_text));
+    // }
   }, []);
 
   function clearLocalStorage() {

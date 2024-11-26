@@ -37,6 +37,14 @@ function Submit() {
     localStorage.setItem('projects', JSON.stringify(projects));
   }
 
+  function updateData(newProject) {
+    // await fetch('/api/score', {
+    //   method: 'POST',
+    //   headers: { 'content-type': 'application/json' },
+    //   body: JSON.stringify(newScore),
+    // });
+  }
+
   const handleClick = () => {
       if (projectName.trim() !== '' && hookSize.trim() !== '' && yarnType.trim !== '') { //prevent sending empty messages
           saveProject(projectName, hookSize, yarnType);
