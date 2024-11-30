@@ -17,11 +17,6 @@ let projects = {};
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
-//tester 2
-apiRouter.post('/poke', async(_req, res) => {
-    console.log("in poke");
-    res.send({msg: "poke page" });
-});
 
 // //CreateAuth a new user
 // apiRouter.post('/auth/create', async (req, res) => {
@@ -62,8 +57,10 @@ apiRouter.post('/poke', async(_req, res) => {
 
 //default
 
-apiRouter.get('/project', (_req, res) => {
-    console.log("in project");
+apiRouter.get('/example_project', (_req, res) => {
+    console.log("in example project");
+    // res.send(projects);
+    projects = updateProjects(req.body, projects);
     res.send(projects);
 });
 
@@ -75,11 +72,23 @@ app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
 
+
+function updateProjects (newProject, projects) {
+    projects.push(newProject);
+    return projects;
+}
+
 // tester
 var test_data = {test:"testdata"};
 
 apiRouter.get('/test', (_req, res) => {
     console.log("In Test");
     res.send(test_data);
+});
+
+//tester 2
+apiRouter.post('/poke', async(_req, res) => {
+    console.log("in poke");
+    res.send({msg: "poke page" });
 });
 

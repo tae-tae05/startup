@@ -37,11 +37,11 @@ function Submit() {
     localStorage.setItem('projects', JSON.stringify(projects));
   }
 
-  function updateData(newProject) {
-    // await fetch('/api/score', {
+  async function updateData(newProject) {
+    // await fetch('/api/new_project', {
     //   method: 'POST',
     //   headers: { 'content-type': 'application/json' },
-    //   body: JSON.stringify(newScore),
+    //   body: JSON.stringify(new_project),
     // });
   }
 
