@@ -52,3 +52,10 @@ For the deliverable, I used React and JS to make the application work for a sing
     - Messaging Chat (Websocket) - In the page where Project information will be displayed, I have a placeholder button that sends a message (renders on the screen) - it will be replaced by Websocket later.  
 - Router - Routing between login and projects/add project page, and routing between projects and home/add project/example projects.
 - Hooks - Used useEffect hooks creating new projects and displaying project information (ex: a counter that updates everytime you click the button)
+### Service Deliverable
+For this deliverable, I added backend points that receive project information and will return project information (once the database is implemented). 
+- Node.js/Express HTTP service - done!
+- Static middleware for frontend - done!
+- Calls to third party endpoints - I have my site pull random facts that they displayed on the example project page whenever you refresh the page. 
+- Backend service endpoints - Placeholders for login that stores the current user on the server. Endpoints for project information. 
+- Front calls service endpoints - I did this using the fetch function. 
