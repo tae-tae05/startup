@@ -22,27 +22,29 @@ function Submit() {
   async function saveProject(projectName, hookSize, yarnType) {
     const new_project = {name: projectName, hook: hookSize, yarn: yarnType};
 
-    updateLocalData(new_project);
+    // updateLocalData(new_project);
+    updateData(new_project);
   }
 
-  function updateLocalData(newProject) {
-    let projects = [];
-    const project_texts = localStorage.getItem("projects");
-    if (project_texts) {
-      projects = JSON.parse(project_texts);
-    }
+  // function updateLocalData(newProject) {
+  //   let projects = [];
+  //   const project_texts = localStorage.getItem("projects");
+  //   if (project_texts) {
+  //     projects = JSON.parse(project_texts);
+  //   }
 
-    projects.push(newProject);
+  //   projects.push(newProject);
 
-    localStorage.setItem('projects', JSON.stringify(projects));
-  }
+  //   localStorage.setItem('projects', JSON.stringify(projects));
+  // }
 
-  async function updateData(newProject) {
-    // await fetch('/api/new_project', {
-    //   method: 'POST',
-    //   headers: { 'content-type': 'application/json' },
-    //   body: JSON.stringify(new_project),
-    // });
+  async function updateData() {
+    const new_proj = { name: projectName, hook: hookSize, yarn: yarnType }
+    await fetch('/api/new_project', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(new_proj),
+    });
   }
 
   const handleClick = () => {
