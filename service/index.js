@@ -24,7 +24,7 @@ apiRouter.get('/users', (_req, res) => {
 
 // //CreateAuth a new user
 apiRouter.post('/auth/create', async (req, res) => {
-    console.log("In Create");
+    console.log("in Create");
     const user = users[req.body.email];
     if (user) {
       res.status(409).send({ msg: 'Existing user' });
@@ -36,8 +36,9 @@ apiRouter.post('/auth/create', async (req, res) => {
     }
   });
 
-// // GetAuth login an existing user
+// GetAuth login an existing user
 apiRouter.post('/auth/login', async (req, res) => {
+    console.log("in login");
     const user = users[req.body.email];
     if (user) {
     if (req.body.password === user.password) {
@@ -49,7 +50,7 @@ apiRouter.post('/auth/login', async (req, res) => {
     res.status(401).send({ msg: 'Unauthorized' });
 });
 
-// // DeleteAuth logout a user
+// DeleteAuth logout a user
 apiRouter.delete('/auth/logout', (req, res) => {
     console.log("logout");
     const user = Object.values(users).find((u) => u.token === req.body.token);
