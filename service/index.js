@@ -11,7 +11,7 @@ app.use(express.static('public'));
 app.use(express.json());
 
 let users = {};
-let projects = {};
+let projects = [];
 
 //router for service endpoints
 var apiRouter = express.Router();
@@ -57,12 +57,26 @@ app.use(`/api`, apiRouter);
 
 //default
 
-apiRouter.get('/example_project', (_req, res) => {
-    console.log("in example project");
-    // res.send(projects);
+// apiRouter.get('/example_project', (_req, res) => {
+//     console.log("in example project");
+//     projects = updateProjects(req.body, projects);
+//     res.send(projects);
+// });
+
+apiRouter.get('/projects', (_req, res) => {
+    console.log("in projects");
+    res.send(projects);
+});
+
+apiRouter.post('/new_project', async (req, res) => {
+    console.log("new project");
     projects = updateProjects(req.body, projects);
     res.send(projects);
 });
+
+
+
+
 
 app.get('*', (_req, res) => {
     res.send({ msg: 'Jin service' });
