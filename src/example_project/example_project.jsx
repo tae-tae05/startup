@@ -8,13 +8,14 @@ export function Example_Project() {
     const [fact, setFact] = React.useState('Loading fact...');
 
     React.useEffect(() => {
+        
         fetch('https://uselessfacts.jsph.pl/api/v2/facts/random')
         .then((response) => response.json())
         .then((data) => {
             setFact(data.text);
         })
         .catch();
-    });
+    }, []);
 
     return (
         <main className='container-fluid text-center'>

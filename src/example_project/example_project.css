@@ -1,11 +1,19 @@
 h2 {
     font-family: "Bradley Hand", "Comic Sans MS", cursive;
     color: #ffbb5d;
+    padding-top: 50px;
 }
 
 .project-info {
     font-family: "Bradley Hand", "Comic Sans MS", cursive;
     color: rgb(72, 155, 218);
+    padding-right: 10px;
+}
+
+.fact {
+    font-family: "Bradley Hand", "Comic Sans MS", cursive;
+    color: rgb(99, 99, 99);
+    padding-top: 20px
 }
 
 .messaging {
