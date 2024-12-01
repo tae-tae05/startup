@@ -56,6 +56,6 @@ For the deliverable, I used React and JS to make the application work for a sing
 For this deliverable, I added backend points that receive project information and will return project information (once the database is implemented). 
 - Node.js/Express HTTP service - done!
 - Static middleware for frontend - done!
-- Calls to third party endpoints - I have my site pull random facts that they displayed on the example project page whenever you refresh the page. 
-- Backend service endpoints - Placeholders for login that stores the current user on the server. Endpoints for project information. 
+- Calls to third party endpoints - I have my site pull random facts that they displayed on project information pages whenever you load into/refresh the page. 
+- Backend service endpoints - Placeholders for login that stores the current user on the server. Endpoints for stored projects. Projects are listed on the project page.
 - Front calls service endpoints - I did this using the fetch function. 
