@@ -21,7 +21,7 @@ export function Projects() {
     // fetch('/api/clear', {
     //   method: 'delete'
     // });
-    // localStorage.clear();
+    localStorage.clear();
   }
 
   const handleClearStorage = () => {

@@ -14,27 +14,27 @@ export function Unauthenticated(props) {
     }
 
     async function createUser() {
-        // login_create(`/api/auth/create`);
-        localStorage.setItem('userName', userName);
-        props.onLogin(userName);
+        login_create(`/api/auth/create`);
+        // localStorage.setItem('userName', userName);
+        // props.onLogin(userName);
     }
 
-    // async function login_create() {
-    //     const response = await fetch(endpoint, {
-    //         method: 'post',
-    //         body: JSON.stringify({ email: userName, password: password }),
-    //         headers: {
-    //           'Content-type': 'application/json; charset=UTF-8',
-    //         },
-    //       });
-    //       if (response?.status === 200) {
-    //         localStorage.setItem('userName', userName);
-    //         props.onLogin(userName);
-    //       } else {
-    //         const body = await response.json();
-    //         setDisplayError(`⚠ Error: ${body.msg}`);
-    //       }
-    // }
+    async function login_create() {
+        const response = await fetch(endpoint, {
+            method: 'post',
+            body: JSON.stringify({ email: userName, password: password }),
+            headers: {
+              'Content-type': 'application/json; charset=UTF-8',
+            },
+          });
+          if (response?.status === 200) {
+            localStorage.setItem('userName', userName);
+            props.onLogin(userName);
+          } else {
+            const body = await response.json();
+            setDisplayError(`⚠ Error: ${body.msg}`);
+          }
+    }
 
     return (
         <>
