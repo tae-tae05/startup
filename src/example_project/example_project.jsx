@@ -5,16 +5,28 @@ import { Project_Info } from './project_info';
 
 
 export function Example_Project() {
-  return (
-    <main className='container-fluid text-center'>
-      <Project_Info />
-      <h2>Message History</h2>
-        <div>
-            <Chat />
-        </div>
+    const [fact, setFact] = React.useState('Loading fact...');
 
-  </main>
-  );
+    React.useEffect(() => {
+        fetch('https://https://uselessfacts.jsph.pl/api/v2/facts/random')
+        .then((response) => response.json())
+        .then((data) => {
+            setFact(data.text);
+        })
+        .catch();
+    });
+
+    return (
+        <main className='container-fluid text-center'>
+        <Project_Info />
+        <h2>Message History</h2>
+            <div>
+                <Chat />
+                <p className='fact'>{fact}</p>
+            </div>
+
+    </main>
+    );
 }
 
 function Chat() {
