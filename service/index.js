@@ -74,7 +74,10 @@ apiRouter.post('/new_project', async (req, res) => {
     res.send(projects);
 });
 
-
+// apiRouter.delete('/clear', (req, res) => {
+//     console.log("clear");
+//     projects = [];
+//   });
 
 
 

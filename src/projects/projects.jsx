@@ -17,14 +17,17 @@ export function Projects() {
     // }
   }, []);
 
-  function clearLocalStorage() {
-    localStorage.clear();
+  async function clearLocalStorage() {
+    // fetch('/api/clear', {
+    //   method: 'delete'
+    // });
+    // localStorage.clear();
   }
 
   const handleClearStorage = () => {
     clearLocalStorage();
     // Optionally, you can add some feedback to the user
-    alert('Local storage cleared!');
+    alert('Storage cleared!');
   }
 
   const project_names = [];
