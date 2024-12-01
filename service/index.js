@@ -17,11 +17,14 @@ let projects = [];
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
+apiRouter.get('/users', (_req, res) => {
+    console.log("in users");
+    res.send(users);
+});
 
 // //CreateAuth a new user
 apiRouter.post('/auth/create', async (req, res) => {
     console.log("In Create");
-    res.send({msg: "create page" });
     const user = users[req.body.email];
     if (user) {
       res.status(409).send({ msg: 'Existing user' });
@@ -34,17 +37,17 @@ apiRouter.post('/auth/create', async (req, res) => {
   });
 
 // // GetAuth login an existing user
-// apiRouter.post('/auth/login', async (req, res) => {
-//     const user = users[req.body.email];
-//     if (user) {
-//     if (req.body.password === user.password) {
-//         user.token = uuid.v4();
-//         res.send({ token: user.token });
-//         return;
-//     }
-//     }
-//     res.status(401).send({ msg: 'Unauthorized' });
-// });
+apiRouter.post('/auth/login', async (req, res) => {
+    const user = users[req.body.email];
+    if (user) {
+    if (req.body.password === user.password) {
+        user.token = uuid.v4();
+        res.send({ token: user.token });
+        return;
+    }
+    }
+    res.status(401).send({ msg: 'Unauthorized' });
+});
 
 // // DeleteAuth logout a user
 apiRouter.delete('/auth/logout', (req, res) => {
