@@ -11,24 +11,20 @@ export function Projects() {
       .then((projects) => {
         setProjects(projects);
       });
-    // const project_text = localStorage.getItem('projects');
-    // if (project_text) {
-    //   setProjects(JSON.parse(project_text));
-    // }
   }, []);
 
-  async function clearLocalStorage() {
-    // fetch('/api/clear', {
-    //   method: 'delete'
-    // });
-    localStorage.clear();
-  }
+  // async function clearLocalStorage() {
+  //   // fetch('/api/clear', {
+  //   //   method: 'delete'
+  //   // });
+  //   localStorage.clear();
+  // }
 
-  const handleClearStorage = () => {
-    clearLocalStorage();
-    // Optionally, you can add some feedback to the user
-    alert('Storage cleared!');
-  }
+  // const handleClearStorage = () => {
+  //   clearLocalStorage();
+  //   // Optionally, you can add some feedback to the user
+  //   alert('Storage cleared!');
+  // }
 
   const project_names = [];
 
@@ -53,7 +49,7 @@ export function Projects() {
                         {project_names.map((name, index) => (
                           <Link className="projectName list_item" to="../example_project" key={index}>{name}</Link>
                         ))}
-                        <button className="button button1" onClick={handleClearStorage}>Clear All Projects</button>
+                        {/* <button className="button button1" onClick={handleClearStorage}>Clear All Projects</button> */}
                     </div>
                 </menu>
             </nav>
