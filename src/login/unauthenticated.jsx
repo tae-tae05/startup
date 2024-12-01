@@ -9,14 +9,10 @@ export function Unauthenticated(props) {
 
     async function loginUser() {
         login_create(`/api/auth/login`);
-        // localStorage.setItem('userName', userName);
-        // props.onLogin(userName);
     }
 
     async function createUser() {
         login_create(`/api/auth/create`);
-        // localStorage.setItem('userName', userName);
-        // props.onLogin(userName);
     }
 
     async function login_create(endpoint) {
@@ -42,7 +38,6 @@ export function Unauthenticated(props) {
             <img src="crochet-picture.jpeg" alt="crochet" width="300" height="300" />
             <div>
             <h1>Login</h1>
-                <form method="get" action="projects.html">
                     <div className="input-group mb-3">
                         <input className="form-control" type="text" value={userName} onChange={(e) => setUserName(e.target.value)} placeholder="email" />   
                     </div>
@@ -51,7 +46,6 @@ export function Unauthenticated(props) {
                     </div>
                     <button className="button1" onClick={() => loginUser()} disabled={!userName || !password}>Login</button>
                     <button className="button2" onClick={() => createUser()} disabled={!userName || !password}>Register</button>
-                </form>
             </div>
             <MessageDialog message={displayError} onHide={() => setDisplayError(null)} />
         </>

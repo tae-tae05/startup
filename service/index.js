@@ -22,7 +22,7 @@ apiRouter.get('/users', (_req, res) => {
     res.send(users);
 });
 
-// //CreateAuth a new user
+// create a new user
 apiRouter.post('/auth/create', async (req, res) => {
     console.log("in Create");
     const user = users[req.body.email];
@@ -36,7 +36,7 @@ apiRouter.post('/auth/create', async (req, res) => {
     }
   });
 
-// GetAuth login an existing user
+// login existing user
 apiRouter.post('/auth/login', async (req, res) => {
     console.log("in login");
     const user = users[req.body.email];
@@ -59,8 +59,6 @@ apiRouter.delete('/auth/logout', (req, res) => {
     }
     res.status(204).end();
 });
-
-//default
 
 // apiRouter.get('/example_project', (_req, res) => {
 //     console.log("in example project");
@@ -95,22 +93,11 @@ app.listen(port, () => {
 });
 
 
+
 function updateProjects (newProject, projects) {
     projects.push(newProject);
     return projects;
 }
 
-// tester
-var test_data = {test:"testdata"};
 
-apiRouter.get('/test', (_req, res) => {
-    console.log("In Test");
-    res.send(test_data);
-});
-
-//tester 2
-apiRouter.post('/poke', async(_req, res) => {
-    console.log("in poke");
-    res.send({msg: "poke page" });
-});
 
