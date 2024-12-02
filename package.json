@@ -14,5 +14,8 @@
   "license": "ISC",
   "devDependencies": {
     "vite": "^5.4.10"
+  },
+  "dependencies": {
+    "mongodb": "^6.11.0"
   }
 }
