@@ -16,7 +16,7 @@ const projectCollection = db.collection('project');
   })().catch((ex) => {
     console.log(`Unable to connect to database with ${url} because ${ex.message}`);
     process.exit(1);
-  });
+});
 
 async function createUser(email, password) {
     // Hash the password before we insert it into the database
@@ -28,21 +28,24 @@ async function createUser(email, password) {
         token: uuid.v4(),
     };
     await userCollection.insertOne(user);
-
-
     return user;
 }
 
 function getUser(email) {
     return userCollection.findOne({ email: email });
-  }
+}
   
-  function getUserByToken(token) {
+function getUserByToken(token) {
     return userCollection.findOne({ token: token });
+}
+
+async function addProject(project) {
+    return projectCollection.insertOne(project);
   }
 
-  module.exports = {
+module.exports = {
     getUser,
     getUserByToken,
     createUser,
-  };
+    addProject
+};
