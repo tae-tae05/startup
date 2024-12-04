@@ -26,12 +26,3 @@ export function Login({ userName, authState, onAuthChange }) {
     </>
   );
 }
-
-// function Link_Page() {
-//   return (
-//     <Link to="/projects">
-//       <button className="button1">Login</button>
-//       <button className="button2">Register</button>
-//     </Link>
-//   );
-// }
