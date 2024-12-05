@@ -1,19 +1,18 @@
-const express = require('express');
-const app = express();
-const uuid = require('uuid');
-const DB = require('./database.js');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
+const express = require('express');
+const app = express();
+const DB = require('./database.js');
 
 const authCookieName = 'token';
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
-//serves anything in public directory
 app.use(express.static('public'));
 
-//parse json
 app.use(express.json());
+
+app.use(cookieParser());
 
 app.set('trust proxy', true);
 
