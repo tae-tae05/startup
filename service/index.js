@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const uuid = require('uuid');
 const DB = require('./database.js');
-const cookieParser = require('cookie-parser');
+// const cookieParser = require('cookie-parser');
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
@@ -12,8 +12,8 @@ app.use(express.static('public'));
 //parse json
 app.use(express.json());
 
-let users = {};
-let projects = [];
+app.set('trust proxy', true);
+
 
 //router for service endpoints
 var apiRouter = express.Router();
@@ -64,18 +64,6 @@ apiRouter.post('/auth/login', async (req, res) => {
     }
     res.status(401).send({ msg: 'Unauthorized' });
   });
-// apiRouter.post('/auth/login', async (req, res) => {
-//     console.log("in login");
-//     const user = users[req.body.email];
-//     if (user) {
-//     if (req.body.password === user.password) {
-//         user.token = uuid.v4();
-//         res.send({ token: user.token });
-//         return;
-//     }
-//     }
-//     res.status(401).send({ msg: 'Unauthorized' });
-// });
 
 // secureApiRouter verifies credentials for endpoints
 const secureApiRouter = express.Router();
@@ -96,15 +84,6 @@ apiRouter.delete('/auth/logout', (_req, res) => {
     res.clearCookie(authCookieName);
     res.status(204).end();
   });
-  
-// apiRouter.delete('/auth/logout', (req, res) => {
-//     console.log("logout");
-//     const user = Object.values(users).find((u) => u.token === req.body.token);
-//     if (user) {
-//     delete user.token;
-//     }
-//     res.status(204).end();
-// });
 
 // apiRouter.get('/example_project', (_req, res) => {
 //     console.log("in example project");
@@ -112,16 +91,16 @@ apiRouter.delete('/auth/logout', (_req, res) => {
 //     res.send(projects);
 // });
 
-apiRouter.get('/projects', (_req, res) => {
-    console.log("in projects");
-    res.send(projects);
-});
+// apiRouter.get('/projects', (_req, res) => {
+//     console.log("in projects");
+//     res.send(projects);
+// });
 
-apiRouter.post('/new_project', async (req, res) => {
-    console.log("new project");
-    projects = updateProjects(req.body, projects);
-    res.send(projects);
-});
+// apiRouter.post('/new_project', async (req, res) => {
+//     console.log("new project");
+//     projects = updateProjects(req.body, projects);
+//     res.send(projects);
+// });
 
 
 app.get('*', (_req, res) => {
@@ -134,10 +113,10 @@ app.listen(port, () => {
 
 
 
-function updateProjects (newProject, projects) {
-    projects.push(newProject);
-    return projects;
-}
+// function updateProjects (newProject, projects) {
+//     projects.push(newProject);
+//     return projects;
+// }
 
 
 
