@@ -86,11 +86,13 @@ apiRouter.delete('/auth/logout', (_req, res) => {
 //     res.send(projects);
 // });
 
-// apiRouter.post('/new_project', async (req, res) => {
-//     console.log("new project");
-//     projects = updateProjects(req.body, projects);
-//     res.send(projects);
-// });
+apiRouter.post('/new_project', async (req, res) => {
+    console.log("new project");
+    const project = { ...req.body, ip: req.ip };
+    await DB.addProject(project);
+    const projects = await DB.getProjects();
+    res.send(projects);
+});
 
 
 app.get('*', (_req, res) => {
@@ -109,11 +111,6 @@ function setAuthCookie(res, authToken) {
       sameSite: 'strict',
     });
   }
-
-// function updateProjects (newProject, projects) {
-//     projects.push(newProject);
-//     return projects;
-// }
 
 
 

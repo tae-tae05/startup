@@ -43,6 +43,10 @@ async function addProject(project) {
     return projectCollection.insertOne(project);
   }
 
+async function getProjects(){
+    return projectCollection;
+}
+
 module.exports = {
     getUser,
     getUserByToken,
