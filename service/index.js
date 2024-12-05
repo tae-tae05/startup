@@ -92,14 +92,19 @@ secureApiRouter.use(async (req, res, next) => {
 });
 
 // logout user
-apiRouter.delete('/auth/logout', (req, res) => {
-    console.log("logout");
-    const user = Object.values(users).find((u) => u.token === req.body.token);
-    if (user) {
-    delete user.token;
-    }
+apiRouter.delete('/auth/logout', (_req, res) => {
+    res.clearCookie(authCookieName);
     res.status(204).end();
-});
+  });
+  
+// apiRouter.delete('/auth/logout', (req, res) => {
+//     console.log("logout");
+//     const user = Object.values(users).find((u) => u.token === req.body.token);
+//     if (user) {
+//     delete user.token;
+//     }
+//     res.status(204).end();
+// });
 
 // apiRouter.get('/example_project', (_req, res) => {
 //     console.log("in example project");
