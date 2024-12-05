@@ -39,18 +39,6 @@ apiRouter.post('/auth/create', async (req, res) => {
       });
     }
   });
-// apiRouter.post('/auth/create', async (req, res) => {
-//     console.log("in Create");
-//     const user = users[req.body.email];
-//     if (user) {
-//       res.status(409).send({ msg: 'Existing user' });
-//     } else {
-//       const user = { email: req.body.email, password: req.body.password, token: uuid.v4() };
-//       users[user.email] = user;
-  
-//       res.send({ token: user.token });
-//     }
-//   });
 
 // login existing user
 apiRouter.post('/auth/login', async (req, res) => {
