@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const uuid = require('uuid');
 const DB = require('./database.js');
-// const cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
@@ -99,7 +99,14 @@ app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
 
-
+// setAuthCookie in the HTTP response
+function setAuthCookie(res, authToken) {
+    res.cookie(authCookieName, authToken, {
+      secure: true,
+      httpOnly: true,
+      sameSite: 'strict',
+    });
+  }
 
 // function updateProjects (newProject, projects) {
 //     projects.push(newProject);
