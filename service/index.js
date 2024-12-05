@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const uuid = require('uuid');
+const DB = require('./database.js');
+const cookieParser = require('cookie-parser');
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
@@ -24,30 +26,69 @@ apiRouter.get('/users', (_req, res) => {
 
 // create a new user
 apiRouter.post('/auth/create', async (req, res) => {
-    console.log("in Create");
-    const user = users[req.body.email];
-    if (user) {
+    if (await DB.getUser(req.body.email)) {
       res.status(409).send({ msg: 'Existing user' });
     } else {
-      const user = { email: req.body.email, password: req.body.password, token: uuid.v4() };
-      users[user.email] = user;
+      const user = await DB.createUser(req.body.email, req.body.password);
   
-      res.send({ token: user.token });
+      // Set the cookie
+      setAuthCookie(res, user.token);
+  
+      res.send({
+        id: user._id,
+      });
     }
   });
+// apiRouter.post('/auth/create', async (req, res) => {
+//     console.log("in Create");
+//     const user = users[req.body.email];
+//     if (user) {
+//       res.status(409).send({ msg: 'Existing user' });
+//     } else {
+//       const user = { email: req.body.email, password: req.body.password, token: uuid.v4() };
+//       users[user.email] = user;
+  
+//       res.send({ token: user.token });
+//     }
+//   });
 
 // login existing user
 apiRouter.post('/auth/login', async (req, res) => {
-    console.log("in login");
-    const user = users[req.body.email];
+    const user = await DB.getUser(req.body.email);
     if (user) {
-    if (req.body.password === user.password) {
-        user.token = uuid.v4();
-        res.send({ token: user.token });
+      if (await bcrypt.compare(req.body.password, user.password)) {
+        setAuthCookie(res, user.token);
+        res.send({ id: user._id });
         return;
-    }
+      }
     }
     res.status(401).send({ msg: 'Unauthorized' });
+  });
+// apiRouter.post('/auth/login', async (req, res) => {
+//     console.log("in login");
+//     const user = users[req.body.email];
+//     if (user) {
+//     if (req.body.password === user.password) {
+//         user.token = uuid.v4();
+//         res.send({ token: user.token });
+//         return;
+//     }
+//     }
+//     res.status(401).send({ msg: 'Unauthorized' });
+// });
+
+// secureApiRouter verifies credentials for endpoints
+const secureApiRouter = express.Router();
+apiRouter.use(secureApiRouter);
+
+secureApiRouter.use(async (req, res, next) => {
+  const authToken = req.cookies[authCookieName];
+  const user = await DB.getUserByToken(authToken);
+  if (user) {
+    next();
+  } else {
+    res.status(401).send({ msg: 'Unauthorized' });
+  }
 });
 
 // logout user
@@ -76,12 +117,6 @@ apiRouter.post('/new_project', async (req, res) => {
     projects = updateProjects(req.body, projects);
     res.send(projects);
 });
-
-// apiRouter.delete('/clear', (req, res) => {
-//     console.log("clear");
-//     projects = [];
-//   });
-
 
 
 app.get('*', (_req, res) => {
