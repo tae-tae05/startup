@@ -1,30 +1,19 @@
 import React from 'react';
 import { useState } from 'react';
 import './example_project.css';
-// import { Project_Info } from './project_info';
+import { Fact } from './project_info';
 
 
 export function Example_Project(props) {
-    const [fact, setFact] = React.useState('Loading fact...');
-    // const [projects, setProjects] = React.useState([]);
+    const [projects, setProjects] = React.useState([]);
 
     React.useEffect(() => {
-        
-        fetch('https://uselessfacts.jsph.pl/api/v2/facts/random')
-        .then((response) => response.json())
-        .then((data) => {
-            setFact(data.text);
-        })
-        .catch();
+        fetch('/api/example_project')
+          .then((response) => response.json())
+          .then((project) => {
+            setProjects(project);
+          });
     }, []);
-
-    // React.useEffect(() => {
-    //     fetch('/api/example_project')
-    //       .then((response) => response.json())
-    //       .then((project) => {
-    //         setProjects(project);
-    //       });
-    // }, []);
 
    
     return (
@@ -44,7 +33,7 @@ export function Example_Project(props) {
             <h2>Message History</h2>
                 <div>
                     <Chat />
-                    <p className='fact'>{fact}</p>
+                    <Fact />
                 </div>
 
         </main>
