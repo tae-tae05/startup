@@ -44,12 +44,19 @@ async function addProject(project) {
   }
 
 async function getProjects(){
-    return projectCollection;
+    const projects = projectCollection.find({});
+    return projects.toArray();
+}
+
+async function updateName(old_name, new_name){
+    projectCollection.updateOne( {name: old_name}, {$name: new_name});
 }
 
 module.exports = {
     getUser,
     getUserByToken,
     createUser,
-    addProject
+    addProject,
+    getProjects,
+    updateName
 };

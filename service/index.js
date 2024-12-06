@@ -81,19 +81,23 @@ apiRouter.delete('/auth/logout', (_req, res) => {
 //     res.send(projects);
 // });
 
-// apiRouter.get('/projects', (_req, res) => {
-//     console.log("in projects");
-//     res.send(projects);
-// });
+secureApiRouter.get('/projects', async (req, res) => {
+    const projects = await DB.getProjects();
+    res.send(projects);
+  });
 
-apiRouter.post('/new_project', async (req, res) => {
-    console.log("new project");
+secureApiRouter.post('/new_project', async (req, res) => {
     const project = { ...req.body, ip: req.ip };
     await DB.addProject(project);
     const projects = await DB.getProjects();
     res.send(projects);
 });
 
+secureApiRouter.post('/update_project', async (req, res) => {
+    const projects = await DB.getProjects();
+    const type = { ...req.body, ip: req.ip };
+    
+});
 
 app.get('*', (_req, res) => {
     res.send({ msg: 'Jin service' });

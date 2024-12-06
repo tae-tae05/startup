@@ -26,18 +26,6 @@ function Submit() {
     updateData(new_project);
   }
 
-  // function updateLocalData(newProject) {
-  //   let projects = [];
-  //   const project_texts = localStorage.getItem("projects");
-  //   if (project_texts) {
-  //     projects = JSON.parse(project_texts);
-  //   }
-
-  //   projects.push(newProject);
-
-  //   localStorage.setItem('projects', JSON.stringify(projects));
-  // }
-
   async function updateData() {
     const new_proj = { name: projectName, hook: hookSize, yarn: yarnType }
     await fetch('/api/new_project', {
