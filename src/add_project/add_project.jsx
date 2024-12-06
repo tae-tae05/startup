@@ -22,7 +22,9 @@ function Submit() {
   const [hookSize, setInputValue2] = useState('');
   const [yarnType, setInputValue3] = useState('');
   const index = getRandomInt();
-  // const [text_holder, setCurrentValue] = useState(''); //handle next phase
+  // const counter1 = 0;
+  // const counter2 = 0;
+  // const counter3 = 0;
 
   async function saveProject(projectName, hookSize, yarnType) {
     const num = getRandomInt();
