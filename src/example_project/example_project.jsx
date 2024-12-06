@@ -6,7 +6,7 @@ import './example_project.css';
 
 export function Example_Project(props) {
     const [fact, setFact] = React.useState('Loading fact...');
-    const [projects, setProjects] = React.useState([]);
+    // const [projects, setProjects] = React.useState([]);
 
     React.useEffect(() => {
         
@@ -17,6 +17,14 @@ export function Example_Project(props) {
         })
         .catch();
     }, []);
+
+    // React.useEffect(() => {
+    //     fetch('/api/example_project')
+    //       .then((response) => response.json())
+    //       .then((project) => {
+    //         setProjects(project);
+    //       });
+    // }, []);
 
    
     return (
