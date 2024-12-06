@@ -5,20 +5,11 @@ import { Fact } from './project_info';
 
 
 export function Example_Project(props) {
-    const [projects, setProjects] = React.useState([]);
-
-    React.useEffect(() => {
-        fetch('/api/example_project')
-          .then((response) => response.json())
-          .then((project) => {
-            setProjects(project);
-          });
-    }, []);
-
+    // const [project, setProject] = React.useState([]);
    
     return (
         <main className='container-fluid text-center'>
-            <h2>💠 Project Name 💠</h2>
+            <h2>💠 {name} 💠</h2>
             <div className="project-info">
                 <Hook_Button />
             </div>

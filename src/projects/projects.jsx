@@ -15,6 +15,7 @@ export function Projects() {
 
 
   const project_names = [];
+  const test_data = { name: 'tae'};
 
     for (const [i, project] of projects.entries()) {
         project_names.push(
@@ -35,7 +36,7 @@ export function Projects() {
                         <Link className="projectName list_item" to="../add_project">Add Project</Link>
 
                         {project_names.map((name, index) => (
-                          <Link className="projectName list_item" to="../example_project" key={index}>{name}</Link>
+                          <Link className="projectName list_item" to={{pathname:"../example_project", query:{test_data}}} key={index}>{name}</Link>
                         ))}
                         {/* <Link className="projectName list_item" to={{pathname:"../example_project", state:{name} }} key={index}>{name}</Link> */}
                         {/* <button className="button button1" onClick={handleClearStorage}>Clear All Projects</button> */}

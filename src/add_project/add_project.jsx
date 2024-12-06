@@ -13,21 +13,25 @@ export function Add_Project() {
   );
 }
 
+function getRandomInt() {
+  return Math.floor(Math.random() * 10000);
+}
+
 function Submit() {
   const [projectName, setInputValue1] = useState('');
   const [hookSize, setInputValue2] = useState('');
   const [yarnType, setInputValue3] = useState('');
+  const index = getRandomInt();
   // const [text_holder, setCurrentValue] = useState(''); //handle next phase
 
   async function saveProject(projectName, hookSize, yarnType) {
-    const new_project = {name: projectName, hook: hookSize, yarn: yarnType};
-
-    // updateLocalData(new_project);
+    const num = getRandomInt();
+    const new_project = {name: projectName, hook: hookSize, yarn: yarnType, index: index};
     updateData(new_project);
   }
 
   async function updateData() {
-    const new_proj = { name: projectName, hook: hookSize, yarn: yarnType }
+    const new_proj = { name: projectName, hook: hookSize, yarn: yarnType, index: index}
     await fetch('/api/new_project', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
@@ -58,7 +62,6 @@ function Submit() {
       default:
         break;
     }
-    // saveProject(projectName, hookSize, yarnType);
   };
 
   return (
