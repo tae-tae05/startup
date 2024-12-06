@@ -48,8 +48,10 @@ async function getProjects(){
     return projects.toArray();
 }
 
+
+
 async function updateName(old_name, new_name){
-    projectCollection.updateOne( {name: old_name}, {$name: new_name});
+    return projectCollection.updateOne( {name: old_name}, {$name: new_name});
 }
 
 module.exports = {

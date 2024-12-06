@@ -3,6 +3,8 @@ import { useState } from 'react';
 import './example_project.css';
 
 export function Project_Info() {
+    const [project, setProject] = React.useState([]);
+
     return (
         <>
         <h2>💠 Project Name 💠</h2>

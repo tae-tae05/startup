@@ -70,7 +70,7 @@ secureApiRouter.use(async (req, res, next) => {
 });
 
 // logout user
-apiRouter.delete('/auth/logout', (_req, res) => {
+secureApiRouter.delete('/auth/logout', (_req, res) => {
     res.clearCookie(authCookieName);
     res.status(204).end();
   });
@@ -80,6 +80,11 @@ apiRouter.delete('/auth/logout', (_req, res) => {
 //     projects = updateProjects(req.body, projects);
 //     res.send(projects);
 // });
+
+// secureApiRouter.get('/projects', async (req, res) => {
+//     const projects = await DB.getProjects();
+//     res.send(projects);
+//   });
 
 secureApiRouter.get('/projects', async (req, res) => {
     const projects = await DB.getProjects();
@@ -96,7 +101,7 @@ secureApiRouter.post('/new_project', async (req, res) => {
 secureApiRouter.post('/update_project', async (req, res) => {
     const projects = await DB.getProjects();
     const type = { ...req.body, ip: req.ip };
-    
+
 });
 
 app.get('*', (_req, res) => {
