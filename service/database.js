@@ -48,11 +48,14 @@ async function getProjects(){
     return projects.toArray();
 }
 
+// async function findProject(current_name){
+//     const project = projectCollection.findOne({name: current_name});
+//     return project;
+// }
 
-
-async function updateName(old_name, new_name){
-    return projectCollection.updateOne( {name: old_name}, {$name: new_name});
-}
+// async function updateName(old_name, new_name){
+//     return projectCollection.updateOne( {name: old_name}, {$name: new_name});
+// }
 
 module.exports = {
     getUser,
@@ -60,5 +63,6 @@ module.exports = {
     createUser,
     addProject,
     getProjects,
-    updateName
+    // findProject
+    // updateName
 };

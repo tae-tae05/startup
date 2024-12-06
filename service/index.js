@@ -75,16 +75,11 @@ secureApiRouter.delete('/auth/logout', (_req, res) => {
     res.status(204).end();
   });
 
-// apiRouter.get('/example_project', (_req, res) => {
-//     console.log("in example project");
-//     projects = updateProjects(req.body, projects);
-//     res.send(projects);
-// });
-
-// secureApiRouter.get('/projects', async (req, res) => {
-//     const projects = await DB.getProjects();
-//     res.send(projects);
-//   });
+secureApiRouter.get('/example_project', async (req, res) => {
+    console.log("in example project");
+    const project = await DB.findProject();
+    res.send(project);
+  });
 
 secureApiRouter.get('/projects', async (req, res) => {
     const projects = await DB.getProjects();

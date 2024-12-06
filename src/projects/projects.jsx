@@ -37,6 +37,7 @@ export function Projects() {
                         {project_names.map((name, index) => (
                           <Link className="projectName list_item" to="../example_project" key={index}>{name}</Link>
                         ))}
+                        {/* <Link className="projectName list_item" to={{pathname:"../example_project", state:{name} }} key={index}>{name}</Link> */}
                         {/* <button className="button button1" onClick={handleClearStorage}>Clear All Projects</button> */}
                     </div>
                 </menu>
