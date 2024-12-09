@@ -79,7 +79,7 @@ secureApiRouter.get('/example_project', async (req, res) => {
     console.log("in example project");
     const project = await DB.findProject();
     res.send(project);
-  });
+});
 
 secureApiRouter.get('/projects', async (req, res) => {
     const projects = await DB.getProjects();

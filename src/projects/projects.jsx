@@ -13,18 +13,16 @@ export function Projects() {
       });
   }, []);
 
-  const project_names = [];
-  const test_data = { name: 'tae'};
+  // const project_names = [];
 
-  for (const [i, project] of projects.entries()) {
-      project_names.push(
-          <tr key={i}>
-              <td>
-                  {project.name}
-              </td>
-          </tr>
-      );
-  }
+  // for (const [i, project] of projects.entries()) {
+  //     project_names.push(
+  //         <ul key={i}>
+  //             <li>{project.name}</li>
+  //             <li>{project.id}</li>
+  //         </ul>
+  //     );
+  // }
 
   return (
     <main className="container-fluid text ">
@@ -34,10 +32,12 @@ export function Projects() {
                         <Link className="projectName list_item" to="..">Home</Link>
                         <Link className="projectName list_item" to="../add_project">Add Project</Link>
 
-                        {project_names.map((name, index) => (
+                        {/* {project_names.map((name, index) => (
                           <Link className="projectName list_item" to="../example_project" key={index}>{name}</Link>
+                        ))} */}
+                        {projects.map((project, index) => (
+                          <Link className="projectName list_item" to={"../example_project/$"} key={index}>{project.name}</Link>
                         ))}
-                        {/* <Link className="projectName list_item" to={{pathname:"../example_project", query:{name} }} key={index}>{name}</Link> */}
                     </div>
                 </menu>
             </nav>

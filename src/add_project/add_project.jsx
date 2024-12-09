@@ -28,12 +28,12 @@ function Submit() {
 
   async function saveProject(projectName, hookSize, yarnType) {
     const num = getRandomInt();
-    const new_project = {name: projectName, hook: hookSize, yarn: yarnType, index: index};
+    const new_project = {name: projectName, hook: hookSize, yarn: yarnType, id: index};
     updateData(new_project);
   }
 
   async function updateData() {
-    const new_proj = { name: projectName, hook: hookSize, yarn: yarnType, index: index}
+    const new_proj = { name: projectName, hook: hookSize, yarn: yarnType, id: index}
     await fetch('/api/new_project', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
