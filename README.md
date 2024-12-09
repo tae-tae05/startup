@@ -65,6 +65,6 @@ For this deliverable, I stored both users and projects in the database, and user
 - Stores data in MongoDB - done!
 - User Registration - creates a new account in the database
 - Existing User - can log in with a registered account to see projects and supports logout (saves project info)
-- Storing data - stores project information in the database
+- Storing data - stores project information in the database (please note that you need to click the button slowly for the counters, otherwise it can't keep up and misses information. When you're crocheting, you should only be clicking a counter once every 10-15 minutes or so anyways.)
 - Storing credentials - stores user info in the database
 - Restrictions - cannot add/access projects unless you are logged in
