@@ -54,6 +54,13 @@ async function findProject(current_id){
     return project;
 }
 
+async function increment1(current_id){
+    const num = parseInt(current_id, 10);
+    projectCollection.updateOne(
+        { num: num },
+        { $inc: {counter1: +1}});
+}
+
 // async function updateName(old_name, new_name){
 //     return projectCollection.updateOne( {name: old_name}, {$name: new_name});
 // }

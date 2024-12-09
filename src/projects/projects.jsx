@@ -13,16 +13,6 @@ export function Projects() {
       });
   }, []);
 
-  // const project_names = [];
-
-  // for (const [i, project] of projects.entries()) {
-  //     project_names.push(
-  //         <tr key={i}>
-  //             <td>{project.name}</td>
-  //         </tr>
-  //     );
-  // }
-
   return (
     <main className="container-fluid text ">
             <nav>
@@ -30,10 +20,6 @@ export function Projects() {
                     <div className="vertical-menu">
                         <Link className="projectName list_item" to="..">Home</Link>
                         <Link className="projectName list_item" to="../add_project">Add Project</Link>
-
-                        {/* {project_names.map((name, index) => (
-                          <Link className="projectName list_item" to="../example_project" key={index}>{name}</Link>
-                        ))} */}
                         {projects.map((project, index) => (
                           <Link className="projectName list_item" to={`../example_project/${project.num}`} key={index}>{project.name}</Link>
                         ))}
