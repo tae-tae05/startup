@@ -66,5 +66,5 @@ For this deliverable, I stored both users and projects in the database, and user
 - User Registration - creates a new account in the database
 - Existing User - can log in with a registered account to see projects and supports logout (saves project info)
 - Storing data - stores project information in the database
-- Storing credentials - 
-- Restrictions - cannot 
+- Storing credentials - stores user info in the database
+- Restrictions - cannot add/access projects unless you are logged in
