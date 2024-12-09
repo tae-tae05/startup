@@ -17,19 +17,46 @@ export function Example_Project(props) {
           });
       }, []);
 
-    
-    const [temp_hook, setInputValue] = useState('');
-    const [hook_holder, setCurrentValue] = useState(project.hook);
-
-    const handleInput = (event) => {
-        setInputValue(event.target.value);
-    };
-
-    const handleClick = () => {
-        if (temp_hook.trim() !== '') { //prevent sending empty messages
-            setCurrentValue(temp_hook);
-            setInputValue(''); //clear input field after sending
-        }
+      const [count1, setCount1] = useState(project.counter1);
+      const [count2, setCount2] = useState(project.counter2);
+      const [count3, setCount3] = useState(project.counter3);
+  
+      const increment = (index) => {
+          switch (index) {
+              case 1:
+                setCount1(count1 + 1);
+                break;
+              case 2:
+                  setCount2(count2 + 1);
+                break;
+              case 3:
+                  setCount3(count3 + 1);
+                break;
+              default:
+                break;
+            }
+      };
+  
+      const decrease = (index) => {
+          switch (index) {
+              case 1:
+                  if(count1 > 0){
+                      setCount1(count1 - 1);
+                      break;
+                  }
+              case 2:
+                  if(count2 > 0){
+                      setCount2(count2 - 1);
+                      break;
+                  }
+              case 3:
+                  if(count3 > 0){
+                      setCount3(count3 - 1);
+                      break;
+                  }
+              default:
+                  break;
+              }
       };
    
     return (
@@ -37,15 +64,21 @@ export function Example_Project(props) {
             <h2>💠 {project.name} 💠</h2>
             <div className="project-info">
                 <span className="color1">Hook: </span><span>{project.hook} </span>
-                {/* <input type='text' value={temp_hook} onChange={handleInput}/>
-                <button className="button button1" onClick={handleClick}>Submit</button> */}
             </div>
             <div className="project-info">
             <span className="color1">Yarn Type: </span><span>{project.yarn} </span>
             </div>
 
             <div className="project-info">
-                <Counter_Button />
+                <span className="color1">Count: </span>{count1}
+                <button className="button button1" onClick={() => increment(1)}>Up</button>
+                <button className="button button1" onClick={() => decrease(1)}>Down</button>
+                <span className="color1">Count: </span>{count2}
+                <button className="button button1" onClick={() => increment(2)}>Up</button>
+                <button className="button button1" onClick={() => decrease(2)}>Down</button>
+                <span className="color1">Count: </span>{count3}
+                <button className="button button1" onClick={() => increment(3)}>Up</button>
+                <button className="button button1" onClick={() => decrease(3)}>Down</button>
             </div>
 
             <h2>Message History</h2>
@@ -56,64 +89,6 @@ export function Example_Project(props) {
 
         </main>
     );
-}
-
-function Counter_Button() {
-    const [count1, setCount1] = useState(0);
-    const [count2, setCount2] = useState(0);
-    const [count3, setCount3] = useState(0);
-
-    const increment = (index) => {
-        switch (index) {
-            case 1:
-              setCount1(count1 + 1);
-              break;
-            case 2:
-                setCount2(count2 + 1);
-              break;
-            case 3:
-                setCount3(count3 + 1);
-              break;
-            default:
-              break;
-          }
-    };
-
-    const decrease = (index) => {
-        switch (index) {
-            case 1:
-                if(count1 > 0){
-                    setCount1(count1 - 1);
-                    break;
-                }
-            case 2:
-                if(count2 > 0){
-                    setCount2(count2 - 1);
-                    break;
-                }
-            case 3:
-                if(count3 > 0){
-                    setCount3(count3 - 1);
-                    break;
-                }
-            default:
-                break;
-            }
-    };
-
-    return (
-        <>
-            <span className="color1">Count: </span>{count1}
-            <button className="button button1" onClick={() => increment(1)}>Up</button>
-            <button className="button button1" onClick={() => decrease(1)}>Down</button>
-            <span className="color1">Count: </span>{count2}
-            <button className="button button1" onClick={() => increment(2)}>Up</button>
-            <button className="button button1" onClick={() => decrease(2)}>Down</button>
-            <span className="color1">Count: </span>{count3}
-            <button className="button button1" onClick={() => increment(3)}>Up</button>
-            <button className="button button1" onClick={() => decrease(3)}>Down</button>
-        </>
-    )
 }
 
 
