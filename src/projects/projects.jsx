@@ -35,7 +35,7 @@ export function Projects() {
                           <Link className="projectName list_item" to="../example_project" key={index}>{name}</Link>
                         ))} */}
                         {projects.map((project, index) => (
-                          <Link className="projectName list_item" to={`../example_project/${project.id}`} key={index}>{project.name}</Link>
+                          <Link className="projectName list_item" to={`../example_project/${project.num}`} key={index}>{project.name}</Link>
                         ))}
                     </div>
                 </menu>

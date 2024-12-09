@@ -76,33 +76,31 @@ secureApiRouter.delete('/auth/logout', (_req, res) => {
   });
 
 secureApiRouter.get('/example_project/:id', async (req, res) => {
-    const { id } = req.params;
-    // try {
-    //     const { id } = req.params;
-    //     const object = await DB.findProject(id);
-    //     if(!object) {
-    //         return res.status(404).json({ error: 'Project not found '});
-    //     }
-    //     res.send(project);
-    // }
-    // catch (error) {
-    //     console.error("Error fetching project:", error);
-    //     res.status(500).json({ error: 'Internal server error'});
-    // }
-    const project = await DB.findProject(id);
-    console.log(id);
-    res.send(project);
+    try {
+        const { num } = req.params;
+        const object = await DB.findProject(num);
+        if(!object) {
+            return res.status(404).json({ error: 'Project not found '});
+        }
+        res.send(project);
+    }
+    catch (error) {
+        console.error("Error fetching project:", error);
+        res.status(500).json({ error: 'Internal server error'});
+    }
+    // const project = await DB.findProject(id);
+    // console.log(id);
+    // console.log(project);
+    // res.send(project);
 });
 
 
 secureApiRouter.get('/projects', async (req, res) => {
-    // console.log('hello world');
     const projects = await DB.getProjects();
     res.send(projects);
   });
 
 secureApiRouter.post('/add_project', async (req, res) => {
-    console.log("add project");
     const project = { ...req.body, ip: req.ip };
     await DB.addProject(project);
     const projects = await DB.getProjects();

@@ -27,19 +27,15 @@ function Submit() {
   // const counter3 = 0;
 
   async function saveProject(projectName, hookSize, yarnType) {
-    const num = getRandomInt();
-    const new_project = {name: projectName, hook: hookSize, yarn: yarnType, id: index};
-    updateData(new_project);
-  }
-
-  async function updateData() {
-    const new_proj = { name: projectName, hook: hookSize, yarn: yarnType, id: index}
-    await fetch('/api/new_project', {
+    const new_project = {name: projectName, hook: hookSize, yarn: yarnType, num: index};
+    await fetch('/api/add_project', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(new_proj),
+      body: JSON.stringify(new_project),
     });
+    // updateData(new_project);
   }
+
 
   const handleClick = () => {
       if (projectName.trim() !== '' && hookSize.trim() !== '' && yarnType.trim !== '') { //prevent sending empty messages

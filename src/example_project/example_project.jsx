@@ -7,10 +7,10 @@ import { useParams } from 'react-router-dom';
 
 export function Example_Project(props) {
     const [project, setProject] = React.useState([]);
-    const { id } = useParams();
+    const { num } = useParams();
 
     React.useEffect(() => {
-        fetch(`/api/example_project/${id}`)
+        fetch(`/api/example_project/${num}`)
           .then((response) => response.json())
           .then((project) => {
             setProject(project);
@@ -19,10 +19,10 @@ export function Example_Project(props) {
    
     return (
         <main className='container-fluid text-center'>
-            {project.map((object, index) => (
+            {/* {project.map((object, index) => (
                 <h2>💠 {object.name} 💠</h2>
-            ))}
-            {/* <h2>💠 {project} 💠</h2> */}
+            ))} */}
+            <h2>💠 💠</h2>
             <div className="project-info">
                 <Hook_Button />
             </div>

@@ -49,7 +49,7 @@ async function getProjects(){
 }
 
 async function findProject(current_id){
-    const project = projectCollection.findOne({id: current_id});
+    const project = projectCollection.findOne({num: current_id});
     return project;
 }
 
