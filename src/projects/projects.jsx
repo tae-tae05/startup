@@ -17,10 +17,9 @@ export function Projects() {
 
   // for (const [i, project] of projects.entries()) {
   //     project_names.push(
-  //         <ul key={i}>
-  //             <li>{project.name}</li>
-  //             <li>{project.id}</li>
-  //         </ul>
+  //         <tr key={i}>
+  //             <td>{project.name}</td>
+  //         </tr>
   //     );
   // }
 
@@ -36,7 +35,7 @@ export function Projects() {
                           <Link className="projectName list_item" to="../example_project" key={index}>{name}</Link>
                         ))} */}
                         {projects.map((project, index) => (
-                          <Link className="projectName list_item" to={"../example_project/$"} key={index}>{project.name}</Link>
+                          <Link className="projectName list_item" to={`../example_project/${project.id}`} key={index}>{project.name}</Link>
                         ))}
                     </div>
                 </menu>

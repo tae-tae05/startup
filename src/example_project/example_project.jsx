@@ -2,22 +2,27 @@ import React from 'react';
 import { useState } from 'react';
 import './example_project.css';
 import { Fact } from './project_info';
+import { useParams } from 'react-router-dom';
 
 
 export function Example_Project(props) {
-    // const [projects, setProjects] = React.useState([]);
+    const [project, setProject] = React.useState([]);
+    const { id } = useParams();
 
-    // React.useEffect(() => {
-    //     fetch('/api/projects')
-    //       .then((response) => response.json())
-    //       .then((projects) => {
-    //         setProjects(projects);
-    //       });
-    //   }, []);
+    React.useEffect(() => {
+        fetch(`/api/example_project/${id}`)
+          .then((response) => response.json())
+          .then((project) => {
+            setProject(project);
+          });
+      }, []);
    
     return (
         <main className='container-fluid text-center'>
-            <h2>💠 {name} 💠</h2>
+            {project.map((object, index) => (
+                <h2>💠 {object.name} 💠</h2>
+            ))}
+            {/* <h2>💠 {project} 💠</h2> */}
             <div className="project-info">
                 <Hook_Button />
             </div>

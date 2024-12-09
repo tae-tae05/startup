@@ -48,8 +48,8 @@ async function getProjects(){
     return projects.toArray();
 }
 
-async function findProject(current_name){
-    const project = projectCollection.findOne({name: current_name});
+async function findProject(current_id){
+    const project = projectCollection.findOne({id: current_id});
     return project;
 }
 
