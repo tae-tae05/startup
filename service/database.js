@@ -54,16 +54,61 @@ async function findProject(current_id){
     return project;
 }
 
-async function increment1(current_id){
+async function increment(current_id, counter){
     const num = parseInt(current_id, 10);
-    projectCollection.updateOne(
-        { num: num },
-        { $inc: {counter1: +1}});
+    const index = parseInt(counter, 10);
+    console.log('in database');
+    // projectCollection.updateOne(
+    //     { num: num },
+    //     { $inc: {counter1: +1}});
+    switch (index) {
+        case 1:
+            projectCollection.updateOne(
+                { num: num },
+                { $inc: {counter1: +1}});
+        break;
+        case 2:
+            projectCollection.updateOne(
+                { num: num },
+                { $inc: {counter2: +1}});
+        break;
+        case 3:
+            projectCollection.updateOne(
+                { num: num },
+                { $inc: {counter3: +1}});
+        break;
+        default:
+        break;
+    }
 }
 
-// async function updateName(old_name, new_name){
-//     return projectCollection.updateOne( {name: old_name}, {$name: new_name});
-// }
+async function decrease(current_id, counter){
+    const num = parseInt(current_id, 10);
+    const index = parseInt(counter, 10);
+    console.log('in database');
+    // projectCollection.updateOne(
+    //     { num: num },
+    //     { $inc: {counter1: -1}});
+    switch (index) {
+        case 1:
+            projectCollection.updateOne(
+                { num: num },
+                { $inc: {counter1: -1}});
+        break;
+        case 2:
+            projectCollection.updateOne(
+                { num: num },
+                { $inc: {counter2: -1}});
+        break;
+        case 3:
+            projectCollection.updateOne(
+                { num: num },
+                { $inc: {counter3: -1}});
+        break;
+        default:
+        break;
+    }
+}
 
 module.exports = {
     getUser,
@@ -71,6 +116,7 @@ module.exports = {
     createUser,
     addProject,
     getProjects,
-    findProject
-    // updateName
+    findProject,
+    increment,
+    decrease  
 };

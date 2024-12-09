@@ -102,11 +102,18 @@ secureApiRouter.post('/add_project', async (req, res) => {
     res.send(projects);
 });
 
-secureApiRouter.post('/update_project', async (req, res) => {
-    const projects = await DB.getProjects();
-    const type = { ...req.body, ip: req.ip };
+secureApiRouter.post('/increment/:num/:index', async (req, res) => {
+    console.log("in inc index"); // FIXME: Delete
+    const { num, index } = req.params;
 
-});
+    await DB.increment(num, index);
+})
+
+secureApiRouter.post('/decrease/:num/:index', async (req, res) => {
+    console.log("in dec index"); // FIXME: Delete
+    const { num, index } = req.params;
+    await DB.decrease(num, index);
+})
 
 app.get('*', (_req, res) => {
     res.send({ msg: 'Jin service' });
