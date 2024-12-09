@@ -5,7 +5,15 @@ import { Fact } from './project_info';
 
 
 export function Example_Project(props) {
-    // const [project, setProject] = React.useState([]);
+    // const [projects, setProjects] = React.useState([]);
+
+    // React.useEffect(() => {
+    //     fetch('/api/projects')
+    //       .then((response) => response.json())
+    //       .then((projects) => {
+    //         setProjects(projects);
+    //       });
+    //   }, []);
    
     return (
         <main className='container-fluid text-center'>
