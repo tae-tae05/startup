@@ -22,12 +22,12 @@ function Submit() {
   const [hookSize, setInputValue2] = useState('');
   const [yarnType, setInputValue3] = useState('');
   const index = getRandomInt();
-  // const counter1 = 0;
-  // const counter2 = 0;
-  // const counter3 = 0;
+  const counter1 = 0;
+  const counter2 = 0;
+  const counter3 = 0;
 
   async function saveProject(projectName, hookSize, yarnType) {
-    const new_project = {name: projectName, hook: hookSize, yarn: yarnType, num: index};
+    const new_project = {name: projectName, hook: hookSize, yarn: yarnType, num: index, counter1: counter1, counter2: counter2, counter3: counter3};
     await fetch('/api/add_project', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },

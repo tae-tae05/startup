@@ -75,19 +75,21 @@ secureApiRouter.delete('/auth/logout', (_req, res) => {
     res.status(204).end();
   });
 
-secureApiRouter.get('/example_project/:id', async (req, res) => {
+secureApiRouter.get('/example_project/:num', async (req, res) => {
     try {
         const { num } = req.params;
         const object = await DB.findProject(num);
         if(!object) {
             return res.status(404).json({ error: 'Project not found '});
         }
-        res.send(project);
+        
+        res.send(object);
     }
     catch (error) {
         console.error("Error fetching project:", error);
         res.status(500).json({ error: 'Internal server error'});
     }
+    // const { id } = req.params;
     // const project = await DB.findProject(id);
     // console.log(id);
     // console.log(project);

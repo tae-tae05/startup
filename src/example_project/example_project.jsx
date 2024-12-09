@@ -16,18 +16,32 @@ export function Example_Project(props) {
             setProject(project);
           });
       }, []);
+
+    
+    const [temp_hook, setInputValue] = useState('');
+    const [hook_holder, setCurrentValue] = useState(project.hook);
+
+    const handleInput = (event) => {
+        setInputValue(event.target.value);
+    };
+
+    const handleClick = () => {
+        if (temp_hook.trim() !== '') { //prevent sending empty messages
+            setCurrentValue(temp_hook);
+            setInputValue(''); //clear input field after sending
+        }
+      };
    
     return (
         <main className='container-fluid text-center'>
-            {/* {project.map((object, index) => (
-                <h2>💠 {object.name} 💠</h2>
-            ))} */}
-            <h2>💠 💠</h2>
+            <h2>💠 {project.name} 💠</h2>
             <div className="project-info">
-                <Hook_Button />
+                <span className="color1">Hook: </span><span>{project.hook} </span>
+                {/* <input type='text' value={temp_hook} onChange={handleInput}/>
+                <button className="button button1" onClick={handleClick}>Submit</button> */}
             </div>
             <div className="project-info">
-                <Update />
+            <span className="color1">Yarn Type: </span><span>{project.yarn} </span>
             </div>
 
             <div className="project-info">
@@ -41,86 +55,6 @@ export function Example_Project(props) {
                 </div>
 
         </main>
-    );
-}
-
-function Chat() {
-    const [message, setMessage] = useState('');
-    const [messages, setMessages] = useState([]);
-
-    const handleInput = (event) => {
-        setMessage(event.target.value);
-    };
-
-    const sendMessage = () => {
-        if (message.trim() !== '') { //prevent sending empty messages
-            setMessages([...messages, message]);
-            setMessage(''); //clear input field after sending
-        }
-    };
-
-    return (
-        <div>
-            <ul>
-                {messages.map((msg, index) => (
-                    <li className="messaging" key={index}>{msg}</li>
-                ))}
-            </ul>
-            <input
-            type="text"
-            value={message}
-            onChange={handleInput}
-            ></input>
-            <button className="button button1" onClick={sendMessage}>Send</button>
-        </div>
-    )
-}
-
-function Update() {
-    const [text, setInputValue] = useState('');
-    const [text_holder, setCurrentValue] = useState('');
-
-    const handleInput = (event) => {
-        setInputValue(event.target.value);
-    };
-
-    const handleClick = () => {
-        if (text.trim() !== '') { //prevent sending empty messages
-            setCurrentValue(text);
-            setInputValue(''); //clear input field after sending
-        }
-      };
-
-    return (
-        <>
-        <span className="color1">Yarn Type: </span><span>{text_holder} </span>
-        <input type='text' value={text} onChange={handleInput}/>
-        <button className="button button1" onClick={handleClick}>Submit</button>
-        </>
-    );
-}
-
-function Hook_Button() {
-    const [text, setInputValue] = useState('');
-    const [text_holder, setCurrentValue] = useState('');
-
-    const handleInput = (event) => {
-        setInputValue(event.target.value);
-    };
-
-    const handleClick = () => {
-        if (text.trim() !== '') { //prevent sending empty messages
-            setCurrentValue(text);
-            setInputValue(''); //clear input field after sending
-        }
-      };
-
-    return (
-        <>
-        <span className="color1">Hook: </span><span>{text_holder} </span>
-        <input type='text' value={text} onChange={handleInput}/>
-        <button className="button button1" onClick={handleClick}>Submit</button>
-        </>
     );
 }
 
@@ -181,4 +115,98 @@ function Counter_Button() {
         </>
     )
 }
+
+
+
+function Chat() {
+    const [message, setMessage] = useState('');
+    const [messages, setMessages] = useState([]);
+
+    const handleInput = (event) => {
+        setMessage(event.target.value);
+    };
+
+    const sendMessage = () => {
+        if (message.trim() !== '') { //prevent sending empty messages
+            setMessages([...messages, message]);
+            setMessage(''); //clear input field after sending
+        }
+    };
+
+    return (
+        <div>
+            <ul>
+                {messages.map((msg, index) => (
+                    <li className="messaging" key={index}>{msg}</li>
+                ))}
+            </ul>
+            <input
+            type="text"
+            value={message}
+            onChange={handleInput}
+            ></input>
+            <button className="button button1" onClick={sendMessage}>Send</button>
+        </div>
+    )
+}
+
+// function Update() {
+//     const [text, setInputValue] = useState('');
+//     const [text_holder, setCurrentValue] = useState('');
+
+//     const handleInput = (event) => {
+//         setInputValue(event.target.value);
+//     };
+
+//     const handleClick = () => {
+//         if (text.trim() !== '') { //prevent sending empty messages
+//             setCurrentValue(text);
+//             setInputValue(''); //clear input field after sending
+//         }
+//       };
+
+//     return (
+//         <>
+//         <span className="color1">Yarn Type: </span><span>{text_holder} </span>
+//         <input type='text' value={text} onChange={handleInput}/>
+//         <button className="button button1" onClick={handleClick}>Submit</button>
+//         </>
+//     );
+// }
+
+// function Hook_Button() {
+//     const [project, setProject] = React.useState([]);
+//     const { num } = useParams();
+
+//     React.useEffect(() => {
+//         fetch(`/api/example_project/${num}`)
+//           .then((response) => response.json())
+//           .then((project) => {
+//             setProject(project);
+//           });
+//       }, []);
+
+//     const hook = project.hook;
+//     const [text, setInputValue] = useState('');
+//     const [text_holder, setCurrentValue] = useState(hook);
+
+//     const handleInput = (event) => {
+//         setInputValue(event.target.value);
+//     };
+
+//     const handleClick = () => {
+//         if (text.trim() !== '') { //prevent sending empty messages
+//             setCurrentValue(text);
+//             setInputValue(''); //clear input field after sending
+//         }
+//       };
+
+//     return (
+//         <>
+//         <span className="color1">Hook: </span><span>{text_holder} </span>
+//         <input type='text' value={text} onChange={handleInput}/>
+//         <button className="button button1" onClick={handleClick}>Submit</button>
+//         </>
+//     );
+// }
 
