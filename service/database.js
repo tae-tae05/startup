@@ -19,7 +19,6 @@ const projectCollection = db.collection('project');
 });
 
 async function createUser(email, password) {
-    // Hash the password before we insert it into the database
     const passwordHash = await bcrypt.hash(password, 10);
 
     const user = {
@@ -57,10 +56,6 @@ async function findProject(current_id){
 async function increment(current_id, counter){
     const num = parseInt(current_id, 10);
     const index = parseInt(counter, 10);
-    console.log('in database');
-    // projectCollection.updateOne(
-    //     { num: num },
-    //     { $inc: {counter1: +1}});
     switch (index) {
         case 1:
             projectCollection.updateOne(
@@ -85,10 +80,6 @@ async function increment(current_id, counter){
 async function decrease(current_id, counter){
     const num = parseInt(current_id, 10);
     const index = parseInt(counter, 10);
-    console.log('in database');
-    // projectCollection.updateOne(
-    //     { num: num },
-    //     { $inc: {counter1: -1}});
     switch (index) {
         case 1:
             projectCollection.updateOne(

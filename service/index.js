@@ -16,8 +16,6 @@ app.use(cookieParser());
 
 app.set('trust proxy', true);
 
-
-//router for service endpoints
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
@@ -26,7 +24,6 @@ apiRouter.get('/users', (_req, res) => {
     res.send(users);
 });
 
-// create a new user
 apiRouter.post('/auth/create', async (req, res) => {
     if (await DB.getUser(req.body.email)) {
       res.status(409).send({ msg: 'Existing user' });
@@ -42,7 +39,6 @@ apiRouter.post('/auth/create', async (req, res) => {
     }
   });
 
-// login existing user
 apiRouter.post('/auth/login', async (req, res) => {
     const user = await DB.getUser(req.body.email);
     if (user) {
@@ -55,7 +51,6 @@ apiRouter.post('/auth/login', async (req, res) => {
     res.status(401).send({ msg: 'Unauthorized' });
   });
 
-// secureApiRouter verifies credentials for endpoints
 const secureApiRouter = express.Router();
 apiRouter.use(secureApiRouter);
 
@@ -69,7 +64,6 @@ secureApiRouter.use(async (req, res, next) => {
   }
 });
 
-// logout user
 secureApiRouter.delete('/auth/logout', (_req, res) => {
     res.clearCookie(authCookieName);
     res.status(204).end();
@@ -103,14 +97,12 @@ secureApiRouter.post('/add_project', async (req, res) => {
 });
 
 secureApiRouter.post('/increment/:num/:index', async (req, res) => {
-    console.log("in inc index"); // FIXME: Delete
     const { num, index } = req.params;
 
     await DB.increment(num, index);
 })
 
 secureApiRouter.post('/decrease/:num/:index', async (req, res) => {
-    console.log("in dec index"); // FIXME: Delete
     const { num, index } = req.params;
     await DB.decrease(num, index);
 })
@@ -123,7 +115,6 @@ app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
 
-// setAuthCookie in the HTTP response
 function setAuthCookie(res, authToken) {
     res.cookie(authCookieName, authToken, {
       secure: true,
