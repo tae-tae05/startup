@@ -68,3 +68,10 @@ For this deliverable, I stored both users and projects in the database, and user
 - Storing data - stores project information in the database (please note that you need to click the button slowly for the counters, otherwise it can't keep up and misses information. When you're crocheting, you should only be clicking a counter once every 10-15 minutes or so anyways.)
 - Storing credentials - stores user info in the database
 - Restrictions - cannot add/access projects unless you are logged in
+### Websocket Deliverable
+For this deliverable, I implemented a live chat system. 
+- Backend listens for WebSocket connection - 
+- Frontend makes WebSocket connection - 
+- Data sent over WebSocket connection - 
+- WebSocket data displayed in the application interface - 
+- All visible elements are working - 

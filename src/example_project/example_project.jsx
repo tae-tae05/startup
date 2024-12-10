@@ -64,8 +64,8 @@ function Counter() {
     // Update `count#` when `project` is updated
     React.useEffect(() => {
         if (project) {
-        setCount1(project.counter1);  // Set count1 based on project.counter1
-        setCount2(project.counter2);  // Set count2 based on project.counter1
+            setCount1(project.counter1);  // Set count1 based on project.counter1
+            setCount2(project.counter2);  // Set count2 based on project.counter1
         setCount3(project.counter3);  // Set count3 based on project.counter1
         }
     }, [project]); // Trigger this when `project` changes
