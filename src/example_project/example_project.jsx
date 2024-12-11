@@ -3,9 +3,9 @@ import { useState } from 'react';
 import './example_project.css';
 import { Fact } from './project_info';
 import { useParams } from 'react-router-dom';
-// import { Chat } from './chat';
+import { Chat } from './chat';
 // import { Event, MessageHandler } from './chatClient';
-import { Chat } from './chatClient';
+// import { Chat } from './chatClient';
 
 export function Example_Project(props) {
     const userName = props.userName;
