@@ -3,13 +3,11 @@ const bcrypt = require('bcrypt');
 const express = require('express');
 const app = express();
 const DB = require('./database.js');
-// const { peerProxy } = require('./peerProxy.js');
+const { peerProxy } = require('./peerProxy.js');
 
 const authCookieName = 'token';
 
-const port = process.argv.length > 2 ? process.argv[2] : 4000;
-
-app.use(express.static('public'));
+const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
 app.use(express.json());
 
@@ -112,10 +110,6 @@ app.get('*', (_req, res) => {
     res.send({ msg: 'Jin service' });
 });
 
-app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
-});
-
 function setAuthCookie(res, authToken) {
     res.cookie(authCookieName, authToken, {
       secure: true,
@@ -124,10 +118,10 @@ function setAuthCookie(res, authToken) {
     });
   }
 
-// const httpService = app.listen(port, () => {
-//   console.log(`Listening on port ${port}`);
-// });
+const httpService = app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
+});
 
-// peerProxy(httpService);
+peerProxy(httpService);
 
 
