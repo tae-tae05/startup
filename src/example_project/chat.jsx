@@ -6,10 +6,6 @@ export function Chat() {
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
 
-    // React.useEffect(() => {
-    //     configureWebSocket();
-    //   }, []);
-
     const handleInput = (event) => {
         setMessage(event.target.value);
     };
@@ -34,7 +30,6 @@ export function Chat() {
                 onChange={handleInput}> 
             </input>
             <button className="button button1" onClick={sendMessage}>Send</button>
-            {/* <button className="button button1" onclick="sendMessage()">Send</button> */}
         </div>
         
     )
