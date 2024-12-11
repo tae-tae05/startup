@@ -13,6 +13,8 @@ class EventMessage {
 }
 
 class MessagingHandler {
+    events = [];
+    handlers = [];
 
     constructor() {
         let port = window.location.port;
