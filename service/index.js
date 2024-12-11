@@ -68,6 +68,12 @@ secureApiRouter.delete('/auth/logout', (_req, res) => {
     res.status(204).end();
   });
 
+secureApiRouter.get('/secureUser', async (req, res) => {
+  const user = await DB.getUserByToken(req.cookies[authCookieName]);
+  const { password, token, ...userWithoutSensitiveInfo } = user;
+  res.send(userWithoutSensitiveInfo);
+});
+
 secureApiRouter.get('/example_project/:num', async (req, res) => {
     try {
         const { num } = req.params;

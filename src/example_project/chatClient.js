@@ -14,10 +14,23 @@ export async function configureWebSocket(user) {
     userChat.displayChat();
 
   };
+
   socket.onclose = (event) => {
       console.log('WebSocket connection closed');
-
   };
+
+  socket.onmessage = async (event) => {
+    const msg = JSON.parse(event.data);
+    console.log(`Received message: ${msg.message}`);
+    const response = await fetch(`/api/secureUser`);
+    const customer = await response.json();
+    // userChat.displayChat(customer);
+  };
+  
+  socket.onerror = (error) => {
+    console.log(`WebSocket error: ${error}`);
+  };
+
 }
 
 class Chat {
