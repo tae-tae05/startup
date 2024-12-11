@@ -19,8 +19,6 @@ export function Example_Project(props) {
           });
       }, []);
 
-    MessageHandler.broadcastEvent(userName, Event.Enter, {});
-
     return (
         <main className='container-fluid text-center'>
             <h2>💠 {project.name} 💠</h2>
