@@ -34,9 +34,9 @@ export function Example_Project(props) {
                 <Counter />
             </div>
 
-            <h2>Message History</h2>
+            {/* <h2>Message History</h2> */}
                 <div>
-                    <Chat />
+                    {/* <Chat /> */}
                     <Fact />
                 </div>
 
