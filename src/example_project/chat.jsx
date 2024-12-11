@@ -6,9 +6,9 @@ export function Chat() {
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
 
-    React.useEffect(() => {
-        configureWebSocket();
-      }, []);
+    // React.useEffect(() => {
+    //     configureWebSocket();
+    //   }, []);
 
     const handleInput = (event) => {
         setMessage(event.target.value);
