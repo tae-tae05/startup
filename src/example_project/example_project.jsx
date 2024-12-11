@@ -4,8 +4,10 @@ import './example_project.css';
 import { Fact } from './project_info';
 import { useParams } from 'react-router-dom';
 import { Chat } from './chat';
+import { Event, MessageHandler } from './chatClient';
 
 export function Example_Project(props) {
+    const userName = props.userName;
     const [project, setProject] = React.useState([]);
     const { num } = useParams();
 
@@ -17,6 +19,7 @@ export function Example_Project(props) {
           });
       }, []);
 
+    MessageHandler.broadcastEvent(userName, Event.Enter, {});
 
     return (
         <main className='container-fluid text-center'>

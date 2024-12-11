@@ -1,7 +1,7 @@
 const Event = {
     System: 'system',
     End: 'gameEnd',
-    Start: 'gameStart',
+    Enter: 'has joined',
   };
 
 class EventMessage {
