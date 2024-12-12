@@ -58,7 +58,7 @@ For this deliverable, I added backend points that receive project information an
 - Backend service endpoints - Placeholders for login that stores the current user on the server. Endpoints for stored projects. Projects are listed on the project page.
 - Front calls service endpoints - I did this using the fetch function. 
 ### Database/Login Deliverable
-For this deliverable, I stored both users and projects in the database, and users cannot access projects until they have logged in. 
+For this deliverable, I stored both users and projects in the database, and users cannot access projects until they have logged in. I turned this in late, so I deployed websocket over this one.
 - MongoDB Atlas Database created - done!
 - Stores data in MongoDB - done!
 - User Registration - creates a new account in the database
