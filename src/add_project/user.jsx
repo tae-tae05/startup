@@ -1,6 +1,6 @@
-import { ProjectEvent, ProjectNotifier } from '../projects/projectNotifier';
+import { ProjectEvent, ProjectNotifier } from './projectNotifier';
 import React from 'react';
-import "../add_project/add_project.css";
+import "./add_project.css";
 
 export function User() {
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import "./add_project.css";
 import { useState } from 'react';
-import { ProjectEvent, ProjectNotifier } from '../projects/projectNotifier';
-import { User } from '../projects/user';
+import { ProjectEvent, ProjectNotifier } from './projectNotifier';
+import { User } from './user';
 
 export function Add_Project(props) {
   const userName = props.userName;
