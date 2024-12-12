@@ -1,7 +1,7 @@
 import React from 'react';
 import "./add_project.css";
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { ProjectEvent, ProjectNotifier } from '../projects/projectNotifier';
 
 
 export function Add_Project() {
@@ -33,6 +33,7 @@ function Submit() {
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(new_project),
     });
+    ProjectNotifier.broadcastEvent(projectName, ProjectEvent.Submit, projectName);
     // updateData(new_project);
   }
 
@@ -76,9 +77,7 @@ function Submit() {
         <label for="name">Yarn Type</label>
         <input type="text" id="yarn" value={yarnType} onChange={(event) => handleInput(event, 3)} />
       </div>
-      {/* <Link to="/example_project"> */}
       <button className="button1" onClick={handleClick}>Submit</button>
-    {/* </Link> */}
     </>
   );
 }
