@@ -4,6 +4,8 @@ import './example_project.css';
 import { Fact } from './project_info';
 import { useParams } from 'react-router-dom';
 
+
+
 export function Example_Project(props) {
     const userName = props.userName;
     const [project, setProject] = React.useState([]);
@@ -30,15 +32,15 @@ export function Example_Project(props) {
             <div className="project-info">
                 <Counter userName={userName}/>
             </div>
+
                 <div>
+                    {/* <Chat /> */}
                     <Fact />
                 </div>
 
         </main>
         );
 }
-
-
 
 function Counter(props) {
 
