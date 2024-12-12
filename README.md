@@ -70,8 +70,8 @@ For this deliverable, I stored both users and projects in the database, and user
 - Restrictions - cannot add/access projects unless you are logged in
 ### Websocket Deliverable
 For this deliverable, I implemented a live chat system. 
-- Backend listens for WebSocket connection 
-- Frontend makes WebSocket connection 
-- Data sent over WebSocket connection 
+- Backend listens for WebSocket connection - done!
+- Frontend makes WebSocket connection - done!
+- Data sent over WebSocket connection - done! 
 - WebSocket data displayed in the application interface 
 - All visible elements are working 
