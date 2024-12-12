@@ -46,7 +46,6 @@ function Counter(props) {
     const [count2, setCount2] = useState(0);
     const [count3, setCount3] = useState(0);
 
-    const [username, setUsername] = useState('');
     const [isValidUsername, setIsValidUsername] = useState(false);
 
     const [project, setProject] = React.useState([]);
@@ -57,25 +56,10 @@ function Counter(props) {
           .then((response) => response.json())
           .then((project) => {
             setProject(project);
-            setUsername(project.userName);
-            // const isValid = props.userName === project.userName;
             setIsValidUsername(props.userName === project.userName);
-            console.log("react " + project.userName);
-            console.log("actual username is " + props.userName);
-            console.log('matching username - ' + isValidUsername);
-            console.log(props.userName === project.userName)
           });
       }, []);
 
-    // React.useEffect(() => {
-    //     if(project){
-    //         const isValid = props.userName == username;
-    //         setIsValidUsername(isValid);
-    //         console.log("actual username is " + props.userName);
-    //         console.log("project username is " + project.userName);
-    //         console.log('matching username - ' + isValidUsername);
-    //         }
-    // }, []);
 
     // Update `count#` when `project` is updated
     React.useEffect(() => {
@@ -84,14 +68,7 @@ function Counter(props) {
             setCount2(project.counter2);  // Set count2 based on project.counter1
             setCount3(project.counter3);  // Set count3 based on project.counter1
         }
-    }, [project]); // Trigger this when `project` changes
-
-    // const checkUsername = () => {
-    //     setUsername(props.userName);s
-
-    //     const isValid = target.value == project.userName;
-    //     setIsValidUsername(isValid);
-    // }
+    }, [project]); // Trigger this when `project` change
 
     // Increment counters in DB with API call
     async function handleIncrement(num, index) {
