@@ -46,7 +46,8 @@ function Counter(props) {
     const [count2, setCount2] = useState(0);
     const [count3, setCount3] = useState(0);
 
-    const [isValidUsername, setIsValidUsername] = useState(true);
+    const [username, setUsername] = useState('');
+    const [isValidUsername, setIsValidUsername] = useState(false);
 
     const [project, setProject] = React.useState([]);
     const { num } = useParams();
@@ -56,21 +57,23 @@ function Counter(props) {
           .then((response) => response.json())
           .then((project) => {
             setProject(project);
+            setUsername(project.userName);
+            // const isValid = props.userName === project.userName;
+            setIsValidUsername(props.userName === project.userName);
+            console.log("react " + project.userName);
+            console.log("actual username is " + props.userName);
+            console.log('matching username - ' + isValidUsername);
+            console.log(props.userName === project.userName)
           });
-        const isValid = props.userName == project.userName;
-        setIsValidUsername(isValid);
-        console.log("actual username is " + props.userName);
-        console.log("project username is " + project.userName);
-        console.log('username is ' + isValidUsername);
       }, []);
 
     // React.useEffect(() => {
     //     if(project){
-    //         const isValid = props.userName == project.userName;
+    //         const isValid = props.userName == username;
     //         setIsValidUsername(isValid);
     //         console.log("actual username is " + props.userName);
     //         console.log("project username is " + project.userName);
-    //         console.log('username is ' + isValidUsername);
+    //         console.log('matching username - ' + isValidUsername);
     //         }
     // }, []);
 
