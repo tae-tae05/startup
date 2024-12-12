@@ -69,18 +69,20 @@ function Submit(props) {
     <>
       <User />
       <div className="box_input">
-        <label htmlFor="name">Project Name</label>
+        <label for="name">Project Name</label>
         <input type="text" id="name" value={projectName} onChange={(event) => handleInput(event, 1)} />
       </div>
       <div className="box_input">
-        <label htmlFor="name">Hook Size</label>
+        <label for="name">Hook Size</label>
         <input type="text" id="hook" value={hookSize} onChange={(event) => handleInput(event, 2)} />
       </div>
       <div className="box_input">
-        <label htmlFor="name">Yarn Type</label>
+        <label for="name">Yarn Type</label>
         <input type="text" id="yarn" value={yarnType} onChange={(event) => handleInput(event, 3)} />
       </div>
+      {/* <Link to="/example_project"> */}
       <button className="button1" onClick={handleClick}>Submit</button>
+    {/* </Link> */}
     </>
   );
 }
