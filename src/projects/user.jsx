@@ -1,10 +1,8 @@
 import { ProjectEvent, ProjectNotifier } from '../projects/projectNotifier';
 import React from 'react';
-import './projects.css'
+import "../add_project/add_project.css";
 
-export function User(props) {
-
-    const userName = props.userName;
+export function User() {
 
     const [events, setEvent] = React.useState([]);
 
@@ -32,7 +30,7 @@ export function User(props) {
 
             messageArray.push(
             <div key={i} className='event'>
-                <span className={'player-event'}>{event.from.split('@')[0]}</span>
+                <span className={'player-event'}>{event.from}</span>
                 {message}
             </div>
         );
@@ -42,8 +40,9 @@ export function User(props) {
 
     return (
         <>
-          <p className='list_item'>Player</p>
-          <div id='player-messages'>{createMessageArray()}</div>
+        <div>
+          <div className='announcement' id='player-box'>{createMessageArray()}</div>
+        </div>
         </>
       );
 }

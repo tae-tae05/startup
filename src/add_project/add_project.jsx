@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { ProjectEvent, ProjectNotifier } from '../projects/projectNotifier';
 import { User } from '../projects/user';
 
-
 export function Add_Project(props) {
   return (
     <main className="parent">
@@ -35,7 +34,6 @@ function Submit() {
       body: JSON.stringify(new_project),
     });
     ProjectNotifier.broadcastEvent(projectName, ProjectEvent.Submit, projectName);
-    // updateData(new_project);
   }
 
 

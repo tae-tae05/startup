@@ -16,3 +16,11 @@ h1 {
     padding: 10px;
     color: rgb(122, 164, 255);
 }
+
+.announcement {
+    margin: 0 0.25em;
+    display: flex;
+    font-family: "Bradley Hand", "Comic Sans MS", cursive;
+    padding: 10px;
+    color: rgb(122, 164, 255);
+}

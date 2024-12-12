@@ -3,9 +3,6 @@ import { useState } from 'react';
 import './example_project.css';
 import { Fact } from './project_info';
 import { useParams } from 'react-router-dom';
-import { Chat } from './chat';
-// import { Event, MessageHandler } from './chatClient';
-// import { Chat } from './chatClient';
 
 export function Example_Project(props) {
     const userName = props.userName;
@@ -33,10 +30,7 @@ export function Example_Project(props) {
             <div className="project-info">
                 <Counter />
             </div>
-
-            {/* <h2>Message History</h2> */}
                 <div>
-                    {/* <Chat /> */}
                     <Fact />
                 </div>
 
@@ -52,7 +46,7 @@ function Counter() {
     const [count2, setCount2] = useState(0);
     const [count3, setCount3] = useState(0);
 
-    const [, forceRender] = useState(undefined);
+    // const [, forceRender] = useState(undefined);
 
     const [project, setProject] = React.useState([]);
     const { num } = useParams();
