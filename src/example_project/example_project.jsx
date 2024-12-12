@@ -7,9 +7,9 @@ import { useParams } from 'react-router-dom';
 
 
 export function Example_Project(props) {
-    const userName = props.userName;
     const [project, setProject] = React.useState([]);
     const { num } = useParams();
+    const userName = props.userName;
 
     React.useEffect(() => {
         fetch(`/api/example_project/${num}`)
@@ -18,6 +18,7 @@ export function Example_Project(props) {
             setProject(project);
           });
       }, []);
+
 
     return (
         <main className='container-fluid text-center'>
@@ -62,15 +63,15 @@ function Counter(props) {
           });
       }, []);
 
-
     // Update `count#` when `project` is updated
     React.useEffect(() => {
         if (project) {
-            setCount1(project.counter1);  // Set count1 based on project.counter1
-            setCount2(project.counter2);  // Set count2 based on project.counter1
-            setCount3(project.counter3);  // Set count3 based on project.counter1
+        setCount1(project.counter1);  // Set count1 based on project.counter1
+        setCount2(project.counter2);  // Set count2 based on project.counter1
+        setCount3(project.counter3);  // Set count3 based on project.counter1
         }
-    }, [project]); // Trigger this when `project` change
+    }, [project]); // Trigger this when `project` changes
+
 
     // Increment counters in DB with API call
     async function handleIncrement(num, index) {
