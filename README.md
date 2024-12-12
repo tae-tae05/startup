@@ -73,5 +73,4 @@ For this deliverable, I implemented a live chat system.
 - Backend listens for WebSocket connection - done!
 - Frontend makes WebSocket connection - done!
 - Data sent over WebSocket connection - done! 
-- WebSocket data displayed in the application interface 
-- All visible elements are working 
+- WebSocket data displayed in the application interface - On the add projects page, it is displayed in real time when another project is added that you can view. 
