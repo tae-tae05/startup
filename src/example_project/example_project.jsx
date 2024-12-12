@@ -5,9 +5,11 @@ import { Fact } from './project_info';
 import { useParams } from 'react-router-dom';
 
 
+
 export function Example_Project(props) {
     const [project, setProject] = React.useState([]);
     const { num } = useParams();
+    const userName = props.userName;
 
     React.useEffect(() => {
         fetch(`/api/example_project/${num}`)
@@ -29,12 +31,11 @@ export function Example_Project(props) {
             </div>
 
             <div className="project-info">
-                <Counter />
+                <Counter userName={userName}/>
             </div>
 
-            <h2>Message History</h2>
                 <div>
-                    <Chat />
+                    {/* <Chat /> */}
                     <Fact />
                 </div>
 
@@ -42,13 +43,13 @@ export function Example_Project(props) {
         );
 }
 
-function Counter() {
+function Counter(props) {
 
     const [count1, setCount1] = useState(0);
     const [count2, setCount2] = useState(0);
     const [count3, setCount3] = useState(0);
 
-    const [, forceRender] = useState(undefined);
+    const [isValidUsername, setIsValidUsername] = useState(false);
 
     const [project, setProject] = React.useState([]);
     const { num } = useParams();
@@ -58,6 +59,7 @@ function Counter() {
           .then((response) => response.json())
           .then((project) => {
             setProject(project);
+            setIsValidUsername(props.userName === project.userName);
           });
       }, []);
 
@@ -130,46 +132,14 @@ function Counter() {
     return (
         <>
         <span className="color1">Count: </span>{count1}
-            <button className="button button1" onClick={() => increment(1)}>Test</button>
-            <button className="button button1" onClick={() => decrease(1)}>Down</button>
+            <button className="button button1" disabled={!isValidUsername} onClick={() => increment(1)}>Test</button>
+            <button className="button button1" disabled={!isValidUsername} onClick={() => decrease(1)}>Down</button>
         <span className="color1">Count: </span>{count2}
-            <button className="button button1" onClick={() => increment(2)}>Up</button>
-            <button className="button button1" onClick={() => decrease(2)}>Down</button>
+            <button className="button button1" disabled={!isValidUsername} onClick={() => increment(2)}>Up</button>
+            <button className="button button1" disabled={!isValidUsername} onClick={() => decrease(2)}>Down</button>
         <span className="color1">Count: </span>{count3}
-            <button className="button button1" onClick={() => increment(3)}>Up</button>
-            <button className="button button1" onClick={() => decrease(3)}>Down</button>
+            <button className="button button1" disabled={!isValidUsername} onClick={() => increment(3)}>Up</button>
+            <button className="button button1" disabled={!isValidUsername} onClick={() => decrease(3)}>Down</button>
         </>
-    )
-}
-
-function Chat() {
-    const [message, setMessage] = useState('');
-    const [messages, setMessages] = useState([]);
-
-    const handleInput = (event) => {
-        setMessage(event.target.value);
-    };
-
-    const sendMessage = () => {
-        if (message.trim() !== '') { //prevent sending empty messages
-            setMessages([...messages, message]);
-            setMessage(''); //clear input field after sending
-        }
-    };
-
-    return (
-        <div>
-            <ul>
-                {messages.map((msg, index) => (
-                    <li className="messaging" key={index}>{msg}</li>
-                ))}
-            </ul>
-            <input
-            type="text"
-            value={message}
-            onChange={handleInput}
-            ></input>
-            <button className="button button1" onClick={sendMessage}>Send</button>
-        </div>
     )
 }
