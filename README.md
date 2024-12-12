@@ -17,12 +17,10 @@ I will use the following technologies as described.
 - JavaScript - Has login, project display, counter display, hooksize/yarn display, and save function.
 - Service - Backend service with endpoints for: 
     - login
-    - changing hook size
     - adding new projects
     - updating counters
-    - changing yarn type
-- DB/Login - Stores users, projects, counters, hook size, and yarn type in database. Register and login users. Credentials are stored in the database. Can only use once you are authenticated. 
-- WebSocket - Makes it possible to access project information from other devices. Can chat with other users to share information about projects/seek advice (ex: hook size, designs, yarn material).
+- DB/Login - Stores users, projects, counters, hook size, and yarn type in database. Register and login users. Credentials are stored in the database. Can only use once you are authenticated. All projects from users are visible, but you can only edit the projects that you added.
+- WebSocket - Is announced on Add Project page when a new user adds a project.
 - React - Application ported to use the React web framework. 
 ### HTML Deliverables
 For this deliverable, I built out the structure of my application using HTML.
@@ -31,7 +29,7 @@ For this deliverable, I built out the structure of my application using HTML.
 - Text - All of the project details are represented by text in the example project page. 
 - Image - An image of yarn and a hook is included on the home page.
 - Third-party - A share button is available; it allows you to send an email to yourself with project details. 
-- DB - The projects page displays example projects that will be stored in the database. They can be accessed by clicking on the link. While it all links to the same example page in this deliverable, each one would have its own page. The example project page has hook size, yarn type, and three different counters which will also be stored in the database. The first line of both the hook size and yarn type is text, which is the placeholder for the current information, and the box underneath would update the database. The counters have text for the number (placeholder), and the up down button would update the database by either incrementing or decreasing by 1. 
+- DB - The projects page displays example projects that will be stored in the database. They can be accessed by clicking on the link. While it all links to the same example page in this deliverable, each one would have its own page. The example project page has hook size, yarn type, and three different counters which will also be stored in the database. The counters have text for the number (placeholder), and the up down button would update the database by either incrementing or decreasing by 1. 
 - Websocket - The example project page shows two boxes at the bottom. One has text to show where the live messages will be broadcasted, and the lower empty box is where the user can input text to send their own message. 
 ### CSS Deliverable
 For the deliverable, I properly styled the application into its final appearance.
@@ -74,3 +72,4 @@ For this deliverable, I implemented a live chat system.
 - Frontend makes WebSocket connection - done!
 - Data sent over WebSocket connection - done! 
 - WebSocket data displayed in the application interface - On the add projects page, it is displayed in real time when another project is added that you can view. 
+- All functionality - note: you can only change counters on the projects that you added. However, you can view other projects to see what they are using for their projects. 

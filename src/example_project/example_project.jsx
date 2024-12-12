@@ -28,7 +28,7 @@ export function Example_Project(props) {
             </div>
 
             <div className="project-info">
-                <Counter />
+                <Counter userName={userName}/>
             </div>
                 <div>
                     <Fact />
@@ -40,13 +40,13 @@ export function Example_Project(props) {
 
 
 
-function Counter() {
+function Counter(props) {
 
     const [count1, setCount1] = useState(0);
     const [count2, setCount2] = useState(0);
     const [count3, setCount3] = useState(0);
 
-    // const [, forceRender] = useState(undefined);
+    const [isValidUsername, setIsValidUsername] = useState(true);
 
     const [project, setProject] = React.useState([]);
     const { num } = useParams();
@@ -57,17 +57,38 @@ function Counter() {
           .then((project) => {
             setProject(project);
           });
+        const isValid = props.userName == project.userName;
+        setIsValidUsername(isValid);
+        console.log("actual username is " + props.userName);
+        console.log("project username is " + project.userName);
+        console.log('username is ' + isValidUsername);
       }, []);
+
+    // React.useEffect(() => {
+    //     if(project){
+    //         const isValid = props.userName == project.userName;
+    //         setIsValidUsername(isValid);
+    //         console.log("actual username is " + props.userName);
+    //         console.log("project username is " + project.userName);
+    //         console.log('username is ' + isValidUsername);
+    //         }
+    // }, []);
 
     // Update `count#` when `project` is updated
     React.useEffect(() => {
         if (project) {
             setCount1(project.counter1);  // Set count1 based on project.counter1
             setCount2(project.counter2);  // Set count2 based on project.counter1
-        setCount3(project.counter3);  // Set count3 based on project.counter1
+            setCount3(project.counter3);  // Set count3 based on project.counter1
         }
     }, [project]); // Trigger this when `project` changes
 
+    // const checkUsername = () => {
+    //     setUsername(props.userName);s
+
+    //     const isValid = target.value == project.userName;
+    //     setIsValidUsername(isValid);
+    // }
 
     // Increment counters in DB with API call
     async function handleIncrement(num, index) {
@@ -128,14 +149,14 @@ function Counter() {
     return (
         <>
         <span className="color1">Count: </span>{count1}
-            <button className="button button1" onClick={() => increment(1)}>Test</button>
-            <button className="button button1" onClick={() => decrease(1)}>Down</button>
+            <button className="button button1" disabled={!isValidUsername} onClick={() => increment(1)}>Test</button>
+            <button className="button button1" disabled={!isValidUsername} onClick={() => decrease(1)}>Down</button>
         <span className="color1">Count: </span>{count2}
-            <button className="button button1" onClick={() => increment(2)}>Up</button>
-            <button className="button button1" onClick={() => decrease(2)}>Down</button>
+            <button className="button button1" disabled={!isValidUsername} onClick={() => increment(2)}>Up</button>
+            <button className="button button1" disabled={!isValidUsername} onClick={() => decrease(2)}>Down</button>
         <span className="color1">Count: </span>{count3}
-            <button className="button button1" onClick={() => increment(3)}>Up</button>
-            <button className="button button1" onClick={() => decrease(3)}>Down</button>
+            <button className="button button1" disabled={!isValidUsername} onClick={() => increment(3)}>Up</button>
+            <button className="button button1" disabled={!isValidUsername} onClick={() => decrease(3)}>Down</button>
         </>
     )
 }
