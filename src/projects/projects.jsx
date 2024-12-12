@@ -1,6 +1,7 @@
 import React from 'react';
 import './projects.css'
 import { Link } from 'react-router-dom';
+import { ProjectEvent, ProjectNotifier } from './projectNotifier';
 
 export function Projects() {
   const [projects, setProjects] = React.useState([]);
