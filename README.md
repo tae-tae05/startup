@@ -67,9 +67,9 @@ For this deliverable, I stored both users and projects in the database, and user
 - Storing credentials - stores user info in the database
 - Restrictions - cannot add/access projects unless you are logged in
 ### Websocket Deliverable
-For this deliverable, I implemented a live chat system. 
+For this deliverable, I implemented a live chat system. Note - I deployed websocket before login was graded due to time constraints. 
 - Backend listens for WebSocket connection - done!
 - Frontend makes WebSocket connection - done!
 - Data sent over WebSocket connection - done! 
 - WebSocket data displayed in the application interface - On the add projects page, it is displayed in real time when another project is added that you can view. 
-- All functionality - note: you can only change counters on the projects that you added. However, you can view other projects to see what they are using for their projects. 
+- All functionality - note: you can only change counters on the projects that you added. However, you can view other projects to see what other users are using for their projects. 
