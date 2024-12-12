@@ -23,4 +23,5 @@ h1 {
     font-family: "Bradley Hand", "Comic Sans MS", cursive;
     padding: 10px;
     color: rgb(122, 164, 255);
+    opacity: 0.7;
 }
