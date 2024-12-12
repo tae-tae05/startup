@@ -9,6 +9,8 @@ const authCookieName = 'token';
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
+app.use(express.static('public'));
+
 app.use(express.json());
 
 app.use(cookieParser());
@@ -68,12 +70,6 @@ secureApiRouter.delete('/auth/logout', (_req, res) => {
     res.status(204).end();
   });
 
-secureApiRouter.get('/secureUser', async (req, res) => {
-  const user = await DB.getUserByToken(req.cookies[authCookieName]);
-  const { password, token, ...userWithoutSensitiveInfo } = user;
-  res.send(userWithoutSensitiveInfo);
-});
-
 secureApiRouter.get('/example_project/:num', async (req, res) => {
     try {
         const { num } = req.params;
@@ -112,6 +108,10 @@ secureApiRouter.post('/decrease/:num/:index', async (req, res) => {
     await DB.decrease(num, index);
 })
 
+// app.get('*', (_req, res) => {
+//     res.send({ msg: 'Jin service' });
+// });
+
 // Default error handler
 app.use(function (err, req, res, next) {
   res.status(500).send({ type: err.name, message: err.message });
@@ -119,14 +119,12 @@ app.use(function (err, req, res, next) {
 
 // Return the application's default page if the path is unknown
 app.use((_req, res) => {
-  res.sendFile('index.html', { root: 'public' })
+  res.sendFile('index.html', { root: 'public' });
 });
-
 
 const httpService = app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
-
 
 function setAuthCookie(res, authToken) {
     res.cookie(authCookieName, authToken, {
@@ -137,4 +135,4 @@ function setAuthCookie(res, authToken) {
   }
 
 
-peerProxy(httpService);
+  peerProxy(httpService);
