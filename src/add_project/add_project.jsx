@@ -2,9 +2,10 @@ import React from 'react';
 import "./add_project.css";
 import { useState } from 'react';
 import { ProjectEvent, ProjectNotifier } from '../projects/projectNotifier';
+import { User } from '../projects/user';
 
 
-export function Add_Project() {
+export function Add_Project(props) {
   return (
     <main className="parent">
         <Submit />
@@ -65,16 +66,17 @@ function Submit() {
 
   return (
     <>
+      <User />
       <div className="box_input">
-        <label for="name">Project Name</label>
+        <label htmlFor="name">Project Name</label>
         <input type="text" id="name" value={projectName} onChange={(event) => handleInput(event, 1)} />
       </div>
       <div className="box_input">
-        <label for="name">Hook Size</label>
+        <label htmlFor="name">Hook Size</label>
         <input type="text" id="hook" value={hookSize} onChange={(event) => handleInput(event, 2)} />
       </div>
       <div className="box_input">
-        <label for="name">Yarn Type</label>
+        <label htmlFor="name">Yarn Type</label>
         <input type="text" id="yarn" value={yarnType} onChange={(event) => handleInput(event, 3)} />
       </div>
       <button className="button1" onClick={handleClick}>Submit</button>

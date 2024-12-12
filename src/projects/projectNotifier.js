@@ -21,10 +21,12 @@ class ProjectEventNotifier {
       const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
       this.socket = new WebSocket(`${protocol}://${window.location.hostname}:${port}/ws`);
       this.socket.onopen = (event) => {
-        this.receiveEvent(new EventMessage('Jin', ProjectEvent.System, { msg: 'connected' }));
+        // this.receiveEvent(new EventMessage('Jin', ProjectEvent.System, { msg: ' connected' }));
+        console.log("websocket connected");
       };
       this.socket.onclose = (event) => {
-        this.receiveEvent(new EventMessage('Jin', ProjectEvent.System, { msg: 'disconnected' }));
+        // this.receiveEvent(new EventMessage('Jin', ProjectEvent.System, { msg: ' disconnected' }));
+        console.log("websocket disconnected");
       };
       this.socket.onmessage = async (msg) => {
         try {

@@ -37,6 +37,14 @@ h1 {
     align-self:center;
 }
 
+/* .user {
+    display: flex;
+    justify-content: space-between;
+    width: 1200px;
+    height: 200px;
+    color: rgb(45, 4, 4);
+  } */
+
 .button {
     background-color: white;
     border: none;
